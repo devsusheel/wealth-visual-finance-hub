@@ -1,7 +1,6 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HomeLoanCalculator from "@/components/HomeLoanCalculator";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, CheckCircle, Star, Users, Calculator, Shield, Clock, TrendingUp, Home, RefreshCw, Building2, Car } from "lucide-react";
@@ -45,7 +44,7 @@ const Index = () => {
       title: "Refinancing",
       description: "Save money with better rates and unlock your home's equity",
       features: ["Lower Interest Rates", "Cash Out Options", "Debt Consolidation"],
-      color: "from-green-600 to-emerald-500",
+      color: "from-blue-600 to-cyan-500",
       link: "/services/refinancing"
     },
     {
@@ -53,7 +52,7 @@ const Index = () => {
       title: "Commercial",
       description: "Business and commercial financing for growth and expansion",
       features: ["Equipment Finance", "Commercial Property", "Working Capital"],
-      color: "from-purple-600 to-indigo-500",
+      color: "from-blue-600 to-cyan-500",
       link: "/services/commercial-loans"
     },
     {
@@ -61,7 +60,7 @@ const Index = () => {
       title: "Car Loans",
       description: "Competitive auto financing for new and used vehicles",
       features: ["New & Used Cars", "Quick Approval", "Flexible Terms"],
-      color: "from-orange-600 to-red-500",
+      color: "from-blue-600 to-cyan-500",
       link: "/services/car-loans"
     }
   ];
@@ -167,9 +166,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Home Loan Calculator */}
-      <HomeLoanCalculator />
 
       {/* Enhanced Services Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-cyan-800 text-white">

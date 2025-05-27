@@ -11,12 +11,12 @@ const CommercialLoans = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-700 text-white py-20">
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Building2 className="h-16 w-16 text-purple-300 mx-auto mb-6" />
+            <Building2 className="h-16 w-16 text-cyan-300 mx-auto mb-6" />
             <h1 className="text-5xl font-bold mb-6">Commercial Loans</h1>
-            <p className="text-xl text-purple-100 max-w-3xl mx-auto">
+            <p className="text-xl text-cyan-100 max-w-3xl mx-auto">
               Fuel your business growth with our comprehensive commercial financing solutions. 
               From equipment purchases to property acquisitions, we've got you covered.
             </p>
@@ -34,7 +34,7 @@ const CommercialLoans = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="hover:shadow-xl transition-shadow">
               <CardHeader>
-                <Briefcase className="h-8 w-8 text-purple-600 mb-2" />
+                <Briefcase className="h-8 w-8 text-cyan-600 mb-2" />
                 <CardTitle>Equipment Finance</CardTitle>
               </CardHeader>
               <CardContent>
@@ -43,7 +43,7 @@ const CommercialLoans = () => {
             </Card>
             <Card className="hover:shadow-xl transition-shadow">
               <CardHeader>
-                <Building2 className="h-8 w-8 text-purple-600 mb-2" />
+                <Building2 className="h-8 w-8 text-cyan-600 mb-2" />
                 <CardTitle>Commercial Property</CardTitle>
               </CardHeader>
               <CardContent>
@@ -52,7 +52,7 @@ const CommercialLoans = () => {
             </Card>
             <Card className="hover:shadow-xl transition-shadow">
               <CardHeader>
-                <TrendingUp className="h-8 w-8 text-purple-600 mb-2" />
+                <TrendingUp className="h-8 w-8 text-cyan-600 mb-2" />
                 <CardTitle>Working Capital</CardTitle>
               </CardHeader>
               <CardContent>
@@ -64,11 +64,11 @@ const CommercialLoans = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">Grow Your Business</h2>
           <p className="text-xl mb-8">Get the funding you need to take your business to the next level</p>
-          <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3">
+          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3">
             Apply for Commercial Finance
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
