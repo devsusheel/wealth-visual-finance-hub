@@ -11,12 +11,12 @@ const CarLoans = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white py-20">
+      <section className="bg-gradient-to-br from-brand-green via-green-700 to-green-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Car className="h-16 w-16 text-cyan-300 mx-auto mb-6" />
+            <Car className="h-16 w-16 text-brand-yellow mx-auto mb-6" />
             <h1 className="text-5xl font-bold mb-6">Car Loans</h1>
-            <p className="text-xl text-cyan-100 max-w-3xl mx-auto">
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               Drive away with your dream car today. Our competitive auto financing options 
               make it easy to get behind the wheel of your next vehicle.
             </p>
@@ -34,7 +34,7 @@ const CarLoans = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center hover:shadow-xl transition-shadow">
               <CardHeader>
-                <Clock className="h-12 w-12 text-cyan-500 mx-auto mb-4" />
+                <Clock className="h-12 w-12 text-brand-green mx-auto mb-4" />
                 <CardTitle>Quick Approval</CardTitle>
               </CardHeader>
               <CardContent>
@@ -43,7 +43,7 @@ const CarLoans = () => {
             </Card>
             <Card className="text-center hover:shadow-xl transition-shadow">
               <CardHeader>
-                <DollarSign className="h-12 w-12 text-cyan-500 mx-auto mb-4" />
+                <DollarSign className="h-12 w-12 text-brand-green mx-auto mb-4" />
                 <CardTitle>Competitive Rates</CardTitle>
               </CardHeader>
               <CardContent>
@@ -52,7 +52,7 @@ const CarLoans = () => {
             </Card>
             <Card className="text-center hover:shadow-xl transition-shadow">
               <CardHeader>
-                <CheckCircle className="h-12 w-12 text-cyan-500 mx-auto mb-4" />
+                <CheckCircle className="h-12 w-12 text-brand-green mx-auto mb-4" />
                 <CardTitle>Simple Process</CardTitle>
               </CardHeader>
               <CardContent>
@@ -64,11 +64,11 @@ const CarLoans = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-brand-yellow to-yellow-600 text-black">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">Ready to Drive?</h2>
           <p className="text-xl mb-8">Get pre-approved for your car loan and start shopping with confidence</p>
-          <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3">
+          <Button size="lg" className="bg-brand-green hover:bg-green-700 text-white px-8 py-3 font-semibold">
             Apply for Car Loan
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>

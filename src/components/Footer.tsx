@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Calculator, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -9,60 +9,61 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <Calculator className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-xl font-bold">Finance Hub</span>
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/lovable-uploads/f574e7ef-1fd3-47d3-b5eb-6b5e82c3e9a5.png" 
+                alt="OzPro Finance Logo" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-gray-400">
               Your trusted partner for mortgage and finance solutions. Making homeownership dreams come true.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer" />
-              <Twitter className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer" />
-              <Linkedin className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer" />
-              <Instagram className="h-5 w-5 text-gray-400 hover:text-white cursor-pointer" />
+              <Facebook className="h-5 w-5 text-gray-400 hover:text-brand-yellow cursor-pointer transition-colors" />
+              <Twitter className="h-5 w-5 text-gray-400 hover:text-brand-yellow cursor-pointer transition-colors" />
+              <Linkedin className="h-5 w-5 text-gray-400 hover:text-brand-yellow cursor-pointer transition-colors" />
+              <Instagram className="h-5 w-5 text-gray-400 hover:text-brand-yellow cursor-pointer transition-colors" />
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <h3 className="text-lg font-semibold text-brand-yellow">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-400 hover:text-white">Home</Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-white">Services</Link></li>
-              <li><Link to="/calculators" className="text-gray-400 hover:text-white">Calculators</Link></li>
-              <li><Link to="/about" className="text-gray-400 hover:text-white">About Us</Link></li>
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/services" className="text-gray-400 hover:text-white transition-colors">Services</Link></li>
+              <li><Link to="/calculators" className="text-gray-400 hover:text-white transition-colors">Calculators</Link></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Services</h3>
+            <h3 className="text-lg font-semibold text-brand-yellow">Services</h3>
             <ul className="space-y-2">
-              <li className="text-gray-400">Home Loans</li>
-              <li className="text-gray-400">Refinancing</li>
-              <li className="text-gray-400">First Home Buyer</li>
-              <li className="text-gray-400">Commercial Loans</li>
+              <li><Link to="/services/home-loans" className="text-gray-400 hover:text-white transition-colors">Home Loans</Link></li>
+              <li><Link to="/services/refinancing" className="text-gray-400 hover:text-white transition-colors">Refinancing</Link></li>
+              <li><Link to="/services/commercial-loans" className="text-gray-400 hover:text-white transition-colors">Commercial Loans</Link></li>
+              <li><Link to="/services/car-loans" className="text-gray-400 hover:text-white transition-colors">Car Loans</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Contact Info</h3>
+            <h3 className="text-lg font-semibold text-brand-yellow">Contact Info</h3>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-cyan-500" />
+                <Phone className="h-4 w-4 text-brand-green" />
                 <span className="text-gray-400">+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-cyan-500" />
-                <span className="text-gray-400">info@financehub.com</span>
+                <Mail className="h-4 w-4 text-brand-green" />
+                <span className="text-gray-400">info@ozprofinance.com</span>
               </div>
               <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-cyan-500" />
-                <span className="text-gray-400">123 Finance St, NY 10001</span>
+                <MapPin className="h-4 w-4 text-brand-green" />
+                <span className="text-gray-400">123 Finance St, Sydney NSW 2000</span>
               </div>
             </div>
           </div>
@@ -70,7 +71,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 FinanceHub. All rights reserved. | Privacy Policy | Terms of Service
+            © 2024 OzPro Finance. All rights reserved. | Privacy Policy | Terms of Service
           </p>
         </div>
       </div>

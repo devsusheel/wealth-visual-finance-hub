@@ -4,46 +4,57 @@ import Footer from "@/components/Footer";
 import LoanCalculator from "@/components/LoanCalculator";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calculator, TrendingUp, PiggyBank, CreditCard, Building, Clock, RefreshCw, Home } from "lucide-react";
+import { useState } from "react";
 
 const Calculators = () => {
+  const [activeCalculator, setActiveCalculator] = useState("loan-repayment");
+
   const calculatorTypes = [
     {
+      id: "loan-repayment",
       icon: Calculator,
       title: "Loan Repayment Calculator",
       description: "Calculate your monthly, fortnightly, or weekly loan payments based on amount, rate, and term.",
       isActive: true
     },
     {
+      id: "loan-comparison",
       icon: TrendingUp,
       title: "Loan Comparison Calculator",
       description: "Compare different loan options side by side to find the best deal for you."
     },
     {
+      id: "extra-repayment",
       icon: PiggyBank,
       title: "Extra Repayment Calculator",
       description: "See how extra payments can save you thousands and reduce your loan term."
     },
     {
+      id: "mortgage-switching",
       icon: RefreshCw,
       title: "Mortgage Switching Calculator",
       description: "Calculate potential savings when switching to a new mortgage provider."
     },
     {
+      id: "interest-only",
       icon: CreditCard,
       title: "Interest Only Calculator",
       description: "Calculate interest-only payments and total loan costs over time."
     },
     {
+      id: "borrowing-power",
       icon: Building,
       title: "Borrowing Power Calculator",
       description: "Determine how much you can borrow based on your income and expenses."
     },
     {
+      id: "repayment-time",
       icon: Clock,
       title: "Repayment Time Calculator",
       description: "Find out how long it will take to pay off your loan with different payment amounts."
     },
     {
+      id: "affordability",
       icon: Home,
       title: "Affordability Calculator",
       description: "Calculate what price range you can afford for your next property purchase."
@@ -69,16 +80,20 @@ const Calculators = () => {
     }
   ];
 
+  const handleCalculatorSelect = (calculatorId: string) => {
+    setActiveCalculator(calculatorId);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white py-20">
+      <section className="bg-gradient-to-br from-brand-green via-green-700 to-green-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">Financial Calculators</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               Make informed financial decisions with our comprehensive suite of calculators. 
               Plan your mortgage, compare loans, and understand your borrowing capacity.
             </p>
@@ -98,12 +113,13 @@ const Calculators = () => {
               <Card 
                 key={index} 
                 className={`cursor-pointer transition-all duration-300 hover:shadow-lg ${
-                  calc.isActive ? 'ring-2 ring-blue-500 bg-blue-50' : 'hover:shadow-md'
+                  activeCalculator === calc.id ? 'ring-2 ring-brand-green bg-green-50' : 'hover:shadow-md'
                 }`}
+                onClick={() => handleCalculatorSelect(calc.id)}
               >
                 <CardHeader className="text-center pb-4">
                   <div className={`w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3 ${
-                    calc.isActive ? 'bg-blue-600' : 'bg-gradient-to-r from-blue-600 to-cyan-500'
+                    activeCalculator === calc.id ? 'bg-brand-green' : 'bg-gradient-to-r from-brand-green to-green-600'
                   }`}>
                     <calc.icon className="h-6 w-6 text-white" />
                   </div>
@@ -121,12 +137,27 @@ const Calculators = () => {
       {/* Main Calculator Section */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <LoanCalculator />
+          {activeCalculator === "loan-repayment" && <LoanCalculator />}
+          {activeCalculator !== "loan-repayment" && (
+            <div className="text-center py-16">
+              <div className="w-20 h-20 bg-brand-green rounded-full flex items-center justify-center mx-auto mb-6">
+                <Calculator className="h-10 w-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Calculator Coming Soon</h3>
+              <p className="text-gray-600 mb-8">This calculator is currently under development. Please use the Loan Repayment Calculator for now.</p>
+              <button 
+                onClick={() => setActiveCalculator("loan-repayment")}
+                className="bg-brand-green hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+              >
+                Use Loan Repayment Calculator
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
       {/* Tips Section */}
-      <section className="py-20 bg-gradient-to-r from-cyan-50 to-blue-50">
+      <section className="py-20 bg-gradient-to-r from-green-50 to-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Financial Tips</h2>
@@ -136,7 +167,7 @@ const Calculators = () => {
             {tips.map((tip, index) => (
               <Card key={index} className="bg-white hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <CardTitle className="text-lg text-blue-600">{tip.title}</CardTitle>
+                  <CardTitle className="text-lg text-brand-green">{tip.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">{tip.description}</p>
@@ -156,21 +187,21 @@ const Calculators = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
+              <div className="w-16 h-16 bg-gradient-to-r from-brand-green to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
                 1
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Enter Your Details</h3>
               <p className="text-gray-600">Input your loan amount, interest rate, and loan term using our interactive sliders or manual entry.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
+              <div className="w-16 h-16 bg-gradient-to-r from-brand-green to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
                 2
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Adjust Parameters</h3>
               <p className="text-gray-600">Fine-tune your payment frequency and explore different scenarios to find what works best for you.</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
+              <div className="w-16 h-16 bg-gradient-to-r from-brand-green to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
                 3
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Review Results</h3>
@@ -183,7 +214,7 @@ const Calculators = () => {
       {/* Disclaimer */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-yellow-50 border-yellow-200">
+          <Card className="bg-yellow-50 border-brand-yellow">
             <CardHeader>
               <CardTitle className="text-lg text-yellow-800">Important Disclaimer</CardTitle>
             </CardHeader>

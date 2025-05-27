@@ -36,7 +36,6 @@ const Index = () => {
       title: "Home Loans",
       description: "First home buyers to investment properties with competitive rates",
       features: ["First Home Buyer Programs", "Investment Loans", "Low Deposit Options"],
-      color: "from-blue-600 to-cyan-500",
       link: "/services/home-loans"
     },
     {
@@ -44,7 +43,6 @@ const Index = () => {
       title: "Refinancing",
       description: "Save money with better rates and unlock your home's equity",
       features: ["Lower Interest Rates", "Cash Out Options", "Debt Consolidation"],
-      color: "from-blue-600 to-cyan-500",
       link: "/services/refinancing"
     },
     {
@@ -52,7 +50,6 @@ const Index = () => {
       title: "Commercial",
       description: "Business and commercial financing for growth and expansion",
       features: ["Equipment Finance", "Commercial Property", "Working Capital"],
-      color: "from-blue-600 to-cyan-500",
       link: "/services/commercial-loans"
     },
     {
@@ -60,7 +57,6 @@ const Index = () => {
       title: "Car Loans",
       description: "Competitive auto financing for new and used vehicles",
       features: ["New & Used Cars", "Quick Approval", "Flexible Terms"],
-      color: "from-blue-600 to-cyan-500",
       link: "/services/car-loans"
     }
   ];
@@ -91,7 +87,7 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section with House Background */}
-      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white">
+      <section className="relative bg-gradient-to-br from-brand-green via-green-700 to-green-800 text-white">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -106,35 +102,35 @@ const Index = () => {
             <div className="space-y-8">
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                 Your Dream Home
-                <span className="block text-cyan-300">Starts Here</span>
+                <span className="block text-brand-yellow">Starts Here</span>
               </h1>
-              <p className="text-xl text-blue-100">
+              <p className="text-xl text-green-100">
                 Get the best mortgage rates and expert financial advice. 
                 Professional guidance to secure your perfect home loan.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3">
+                <Button size="lg" className="bg-brand-yellow hover:bg-yellow-600 text-black px-8 py-3 font-semibold">
                   Free Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Link to="/services">
-                  <Button size="lg" className="bg-white text-blue-900 hover:bg-gray-100 px-8 py-3">
+                  <Button size="lg" className="bg-white text-brand-green hover:bg-gray-100 px-8 py-3 font-semibold">
                     Explore Our Services
                   </Button>
                 </Link>
               </div>
               <div className="grid grid-cols-3 gap-8 pt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-300">$2B+</div>
-                  <div className="text-blue-200">Loans Processed</div>
+                  <div className="text-3xl font-bold text-brand-yellow">$2B+</div>
+                  <div className="text-green-200">Loans Processed</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-300">10K+</div>
-                  <div className="text-blue-200">Happy Customers</div>
+                  <div className="text-3xl font-bold text-brand-yellow">10K+</div>
+                  <div className="text-green-200">Happy Customers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-cyan-300">4.9★</div>
-                  <div className="text-blue-200">Customer Rating</div>
+                  <div className="text-3xl font-bold text-brand-yellow">4.9★</div>
+                  <div className="text-green-200">Customer Rating</div>
                 </div>
               </div>
             </div>
@@ -153,7 +149,7 @@ const Index = () => {
             {features.map((feature, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-brand-green to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="h-8 w-8 text-white" />
                   </div>
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
@@ -168,35 +164,35 @@ const Index = () => {
       </section>
 
       {/* Enhanced Services Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900 to-cyan-800 text-white">
+      <section className="py-20 bg-gradient-to-r from-brand-green to-green-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Our Services</h2>
-            <p className="text-xl text-blue-100">Comprehensive financial solutions for every need</p>
+            <p className="text-xl text-green-100">Comprehensive financial solutions for every need</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="bg-blue-800 border-0 hover:bg-blue-700 transition-all duration-300 group">
+              <Card key={index} className="bg-green-800 border-0 hover:bg-green-700 transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center`}>
-                      <service.icon className="h-6 w-6 text-white" />
+                    <div className="w-12 h-12 bg-brand-yellow rounded-lg flex items-center justify-center">
+                      <service.icon className="h-6 w-6 text-black" />
                     </div>
                     <CardTitle className="text-white text-xl">{service.title}</CardTitle>
                   </div>
-                  <p className="text-blue-200">{service.description}</p>
+                  <p className="text-green-200">{service.description}</p>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-2 text-blue-100">
-                        <CheckCircle className="h-4 w-4 text-cyan-300" />
+                      <li key={featureIndex} className="flex items-center space-x-2 text-green-100">
+                        <CheckCircle className="h-4 w-4 text-brand-yellow" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Link to={service.link}>
-                    <Button className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 group-hover:shadow-lg transition-all`}>
+                    <Button className="w-full bg-brand-yellow hover:bg-yellow-600 text-black font-semibold group-hover:shadow-lg transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -207,7 +203,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-12">
             <Link to="/services">
-              <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600">
+              <Button size="lg" className="bg-brand-yellow hover:bg-yellow-600 text-black font-semibold">
                 View All Services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -229,7 +225,7 @@ const Index = () => {
                 <CardContent className="pt-6">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      <Star key={i} className="h-5 w-5 text-brand-yellow fill-current" />
                     ))}
                   </div>
                   <p className="text-gray-600 mb-4">"{testimonial.content}"</p>
@@ -245,16 +241,16 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-cyan-600 to-blue-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-brand-yellow to-yellow-600 text-black">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8">Join thousands of satisfied customers who chose FinanceHub for their home loans</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3">
+            <Button size="lg" className="bg-brand-green hover:bg-green-700 text-white px-8 py-3 font-semibold">
               Apply Now
             </Button>
             <Link to="/contact">
-              <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-white px-8 py-3">
+              <Button size="lg" className="bg-white text-brand-green hover:bg-gray-100 px-8 py-3 font-semibold border-2 border-brand-green">
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
