@@ -13,7 +13,7 @@ const Footer = () => {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-white" />
               </div>
-              <span className="text-xl font-bold">FinanceHub</span>
+              <span className="text-xl font-bold">Finance Hub</span>
             </div>
             <p className="text-gray-400">
               Your trusted partner for mortgage and finance solutions. Making homeownership dreams come true.
