@@ -1,280 +1,219 @@
-
-import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect, FormEvent, FC } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
-import { Calculator, DollarSign, Percent, Calendar } from "lucide-react";
+import { Calculator as CalcIcon, DollarSign, Percent, Calendar } from "lucide-react";
 
-const LoanCalculator = () => {
+const LoanCalculator: FC = () => {
+  const [activeCalculator, setActiveCalculator] = useState("loan-repayment");
   const [loanAmount, setLoanAmount] = useState(500000);
   const [interestRate, setInterestRate] = useState(5.5);
   const [loanTerm, setLoanTerm] = useState(25);
-  const [paymentFrequency, setPaymentFrequency] = useState("fortnightly");
-  
+  const [paymentFrequency, setPaymentFrequency] = useState("monthly");
   const [results, setResults] = useState({
     payment: 0,
     totalInterest: 0,
     totalPayment: 0,
     monthlyPayment: 0,
     fortnightlyPayment: 0,
-    weeklyPayment: 0
+    weeklyPayment: 0,
   });
 
   useEffect(() => {
-    calculatePayments();
+    const p = loanAmount;
+    const r = interestRate / 100 / 12;
+    const n = loanTerm * 12;
+    const monthly =
+      p * (r * Math.pow(1 + r, n)) /
+      (Math.pow(1 + r, n) - 1);
+    const totalPay = monthly * n;
+    const totalInt = totalPay - p;
+    const fortnightly = (monthly * 12) / 26;
+    const weekly = (monthly * 12) / 52;
+    let pay = monthly;
+    if (paymentFrequency === "fortnightly") pay = fortnightly;
+    if (paymentFrequency === "weekly") pay = weekly;
+    setResults({
+      payment: pay,
+      totalInterest: totalInt,
+      totalPayment: totalPay,
+      monthlyPayment: monthly,
+      fortnightlyPayment: fortnightly,
+      weeklyPayment: weekly,
+    });
   }, [loanAmount, interestRate, loanTerm, paymentFrequency]);
 
-  const calculatePayments = () => {
-    const principal = loanAmount;
-    const monthlyRate = interestRate / 100 / 12;
-    const numberOfPayments = loanTerm * 12;
-    
-    // Monthly payment calculation
-    const monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / 
-                          (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
-    
-    const totalPayment = monthlyPayment * numberOfPayments;
-    const totalInterest = totalPayment - principal;
-    
-    // Calculate different frequencies
-    const fortnightlyPayment = monthlyPayment * 12 / 26;
-    const weeklyPayment = monthlyPayment * 12 / 52;
-    
-    let currentPayment = monthlyPayment;
-    if (paymentFrequency === "fortnightly") currentPayment = fortnightlyPayment;
-    if (paymentFrequency === "weekly") currentPayment = weeklyPayment;
+  const fmt = (amt: number) =>
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(amt);
 
-    setResults({
-      payment: currentPayment,
-      totalInterest,
-      totalPayment,
-      monthlyPayment,
-      fortnightlyPayment,
-      weeklyPayment
-    });
+  const menu = [
+    { id: "loan-repayment", label: "Loan Repayment Calculator" },
+    { id: "loan-comparison", label: "Loan Comparison Calculator" },
+    // add more if needed
+  ];
+
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    loanType: "Home Loan",
+    message: "",
+    verification: "",
+  });
+  const [error, setError] = useState<string | null>(null);
+
+  const onChangeContact = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setContact({ ...contact, [e.target.name]: e.target.value });
   };
 
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2
-    }).format(amount);
+  const onSubmitContact = (e: FormEvent) => {
+    e.preventDefault();
+    if (parseInt(contact.verification) !== 10) {
+      setError("Incorrect sum");
+      return;
+    }
+    alert("Message sent!");
+    setContact({
+      name: "",
+      email: "",
+      phone: "",
+      loanType: "Home Loan",
+      message: "",
+      verification: "",
+    });
+    setError(null);
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {/* Left Sidebar - Calculator Options */}
-      <div className="lg:col-span-1 space-y-4">
-        <Card className="bg-brand-green text-white">
-          <CardHeader>
-            <CardTitle className="text-white">Choose Calculator</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="p-3 bg-green-700 rounded-lg cursor-pointer">
-              <div className="flex items-center space-x-2">
-                <Calculator className="h-4 w-4" />
-                <span>Loan Repayment Calculator</span>
-              </div>
-            </div>
-            <div className="p-3 hover:bg-green-700 rounded-lg cursor-pointer opacity-60">
-              <span>Loan Comparison Calculator</span>
-            </div>
-            <div className="p-3 hover:bg-green-700 rounded-lg cursor-pointer opacity-60">
-              <span>Extra Repayment Calculator</span>
-            </div>
-            <div className="p-3 hover:bg-green-700 rounded-lg cursor-pointer opacity-60">
-              <span>Mortgage Switching Calculator</span>
-            </div>
-            <div className="p-3 hover:bg-green-700 rounded-lg cursor-pointer opacity-60">
-              <span>Interest Only Mortgage Calculator</span>
-            </div>
-            <div className="p-3 hover:bg-green-700 rounded-lg cursor-pointer opacity-60">
-              <span>Borrowing Power Calculator</span>
-            </div>
-            <div className="p-3 hover:bg-green-700 rounded-lg cursor-pointer opacity-60">
-              <span>How Long to Repay Calculator</span>
-            </div>
-          </CardContent>
-        </Card>
+    <div className="min-h-screen bg-[#E6F2FE]">
+      <Navbar />
 
-        <Card className="bg-brand-green text-white">
+      {/* Hero */}
+      <section className="bg-[var(--brand-green)] text-white py-8 mb-8">
+        <div className="max-w-4xl mx-auto text-center px-4">
+          <h1 className="text-3xl font-semibold">Loan Calculators</h1>
+          <p className="mt-2">Estimate repayments, compare options, plan borrowing.</p>
+        </div>
+      </section>
+
+      {/* 1/3/1 grid */}
+      <div className="calculator-grid mb-12">
+        {/* Sidebar */}
+        <div className="calculator-sidebar">
+          <div className="calculator-sidebar-header">
+            <h2 className="font-semibold">Choose Calculator</h2>
+          </div>
+          {menu.map((item) => (
+            <div
+              key={item.id}
+              onClick={() => setActiveCalculator(item.id)}
+              className={`calculator-menu-item ${
+                activeCalculator === item.id ? "active" : ""
+              }`}
+            >
+              <CalcIcon className="h-5 w-5 text-[var(--brand-green)] mr-2" />
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Main Calculator */}
+        <Card className="calculator-panel">
           <CardHeader>
-            <CardTitle className="text-white">Need Help?</CardTitle>
+            <CardTitle className="text-[var(--brand-green)] text-xl">
+              Loan Repayment Calculator
+            </CardTitle>
+            <p className="text-gray-600">
+              Calculate repayments based on amount, rate, and term.
+            </p>
           </CardHeader>
           <CardContent>
-            <p className="text-green-100 mb-4">
-              Our financial experts are here to help you understand your options.
-            </p>
-            <Button className="w-full bg-brand-yellow hover:bg-yellow-600 text-black font-semibold">
-              Contact Us
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Main Calculator */}
-      <div className="lg:col-span-2 space-y-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-brand-green text-2xl">Loan Repayment Calculator</CardTitle>
-            <p className="text-gray-600">Calculate your loan repayments based on loan amount, interest rate, and term.</p>
-          </CardHeader>
-          <CardContent className="space-y-6">
             {/* Loan Amount */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <DollarSign className="h-5 w-5 text-brand-green" />
-                <Label className="text-lg font-medium">Loan Amount</Label>
-                <span className="ml-auto text-xl font-bold text-brand-green">
-                  {formatCurrency(loanAmount)}
+            <div className="mb-6">
+              <div className="flex justify-between items-center mb-2">
+                <div className="flex items-center text-gray-700">
+                  <DollarSign className="h-5 w-5 text-[var(--brand-green)] mr-2" />
+                  <Label>Loan Amount</Label>
+                </div>
+                <span className="text-[var(--brand-green)] font-semibold">
+                  {fmt(loanAmount)}
                 </span>
               </div>
               <Slider
                 value={[loanAmount]}
-                onValueChange={(value) => setLoanAmount(value[0])}
-                max={2000000}
+                onValueChange={(v) => setLoanAmount(v[0])}
                 min={10000}
+                max={2000000}
                 step={1000}
-                className="w-full"
+                className="calculator-slider"
               />
-              <div className="flex justify-between text-sm text-gray-500">
-                <span>$10,000</span>
-                <span>$2,000,000</span>
               </div>
-            </div>
-
-            {/* Interest Rate */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <Percent className="h-5 w-5 text-brand-green" />
-                <Label className="text-lg font-medium">Interest Rate</Label>
-                <span className="ml-auto text-xl font-bold text-brand-green">
-                  {interestRate.toFixed(2)}%
-                </span>
-              </div>
-              <Slider
-                value={[interestRate]}
-                onValueChange={(value) => setInterestRate(value[0])}
-                max={15}
-                min={1}
-                step={0.1}
-                className="w-full"
-              />
-              <div className="flex justify-between text-sm text-gray-500">
-                <span>1%</span>
-                <span>15%</span>
-              </div>
-            </div>
-
-            {/* Loan Term */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <Calendar className="h-5 w-5 text-brand-green" />
-                <Label className="text-lg font-medium">Loan Term</Label>
-                <span className="ml-auto text-xl font-bold text-brand-green">
-                  {loanTerm} Years
-                </span>
-              </div>
-              <Slider
-                value={[loanTerm]}
-                onValueChange={(value) => setLoanTerm(value[0])}
-                max={30}
-                min={1}
-                step={1}
-                className="w-full"
-              />
-              <div className="flex justify-between text-sm text-gray-500">
-                <span>1 year</span>
-                <span>30 years</span>
-              </div>
-            </div>
-
-            {/* Payment Frequency */}
-            <div className="space-y-3">
-              <Label className="text-lg font-medium">Payment Frequency</Label>
-              <div className="grid grid-cols-3 gap-2">
-                <Button
-                  variant={paymentFrequency === "monthly" ? "default" : "outline"}
-                  onClick={() => setPaymentFrequency("monthly")}
-                  className={paymentFrequency === "monthly" ? "bg-brand-green hover:bg-green-700" : "border-brand-green text-brand-green hover:bg-green-50"}
-                >
-                  Monthly
-                </Button>
-                <Button
-                  variant={paymentFrequency === "fortnightly" ? "default" : "outline"}
-                  onClick={() => setPaymentFrequency("fortnightly")}
-                  className={paymentFrequency === "fortnightly" ? "bg-brand-green hover:bg-green-700" : "border-brand-green text-brand-green hover:bg-green-50"}
-                >
-                  Fortnightly
-                </Button>
-                <Button
-                  variant={paymentFrequency === "weekly" ? "default" : "outline"}
-                  onClick={() => setPaymentFrequency("weekly")}
-                  className={paymentFrequency === "weekly" ? "bg-brand-green hover:bg-green-700" : "border-brand-green text-brand-green hover:bg-green-50"}
-                >
-                  Weekly
-                </Button>
-              </div>
-            </div>
-          </CardContent>
+            </CardContent>
         </Card>
 
-        {/* Results */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-brand-green text-xl">Your Results</CardTitle>
+        {/* Contact Form */}
+        <Card className="calculator-panel">
+          <CardHeader className="calculator-sidebar-header">
+            <h2 className="text-white font-semibold">Need More Details?</h2>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-              <div className="text-center">
-                <p className="text-gray-600 mb-2">
-                  {paymentFrequency.charAt(0).toUpperCase() + paymentFrequency.slice(1)} Payment
-                </p>
-                <p className="text-3xl font-bold text-brand-green">
-                  {formatCurrency(results.payment)}
-                </p>
+            <form onSubmit={onSubmitContact} className="space-y-4">
+              <div>
+                <Label>Name *</Label>
+                <input
+                  name="name"
+                  onChange={onChangeContact}
+                  className="mt-1 block w-full rounded-md border-gray-300"
+                  required
+                />
               </div>
-              <div className="text-center">
-                <p className="text-gray-600 mb-2">Total Interest</p>
-                <p className="text-3xl font-bold text-brand-green">
-                  {formatCurrency(results.totalInterest)}
-                </p>
+              <div>
+                <Label>Email *</Label>
+                <input
+                  type="email"
+                  name="email"
+                  onChange={onChangeContact}
+                  className="mt-1 block w-full rounded-md border-gray-300"
+                  required
+                />
               </div>
-              <div className="text-center">
-                <p className="text-gray-600 mb-2">Total Payment</p>
-                <p className="text-3xl font-bold text-brand-green">
-                  {formatCurrency(results.totalPayment)}
-                </p>
+              <div>
+                <Label>Phone</Label>
+                <input
+                  name="phone"
+                  onChange={onChangeContact}
+                  className="mt-1 block w-full rounded-md border-gray-300"
+                />
               </div>
-            </div>
-
-            {/* Payment Comparison */}
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <h4 className="font-semibold mb-3">Payment Comparison</h4>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Monthly:</span>
-                  <span className="font-medium">{formatCurrency(results.monthlyPayment)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Fortnightly:</span>
-                  <span className="font-medium">{formatCurrency(results.fortnightlyPayment)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Weekly:</span>
-                  <span className="font-medium">{formatCurrency(results.weeklyPayment)}</span>
-                </div>
+              <div>
+                <Label>Verification: What is 8 + 2? *</Label>
+                <input
+                  name="verification"
+                  onChange={onChangeContact}
+                  className="mt-1 block w-full rounded-md border-gray-300"
+                  required
+                />
               </div>
-            </div>
-
-            <div className="mt-4 text-sm text-gray-500">
-              <p>The information generated by the calculator is for illustrative purposes only, based on the assumptions and inputs provided. Results are estimates and should not be considered definitive financial advice. For personalized guidance, please consult a qualified mortgage broker to assess your unique financial situation.</p>
-            </div>
+              {error && <p className="text-red-600">{error}</p>}
+              <button
+                type="submit"
+                className="btn-brand-yellow w-full py-2 rounded"
+              >
+                Send Message
+              </button>
+            </form>
           </CardContent>
         </Card>
       </div>
+
+      <Footer />
     </div>
   );
 };

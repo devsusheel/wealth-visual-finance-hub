@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Calculator, Home, Building2, ChevronDown } from "lucide-react";
@@ -40,56 +39,60 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
-                <Calculator className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-gray-900">FinanceHub</span>
+              <img 
+                src="/lovable-uploads/f574e7ef-1fd3-47d3-b5eb-6b5e82c3e9a5.png" 
+                alt="OzPro Finance Logo" 
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive(item.href)
-                    ? "bg-blue-100 text-blue-700"
-                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            
-            {/* Services Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center space-x-1 ${
-                    isServicesActive()
+              <span key={item.name} className="flex items-center">
+                <Link
+                  to={item.href}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    isActive(item.href)
                       ? "bg-blue-100 text-blue-700"
                       : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                   }`}
                 >
-                  <span>Services</span>
-                  <ChevronDown className="h-4 w-4" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-white border shadow-lg">
-                {serviceItems.map((service) => (
-                  <DropdownMenuItem key={service.name} asChild>
-                    <Link
-                      to={service.href}
-                      className="w-full px-3 py-2 text-sm hover:bg-gray-50 cursor-pointer"
-                    >
-                      {service.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  {item.name}
+                </Link>
+
+                {/* Insert Services dropdown right after Home */}
+                {item.name === 'Home' && (
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button
+                        className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center space-x-1 ${
+                          isServicesActive()
+                            ? "bg-blue-100 text-blue-700"
+                            : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                        }`}
+                      >
+                        <span>Services</span>
+                        <ChevronDown className="h-4 w-4" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56 bg-white border shadow-lg">
+                      {serviceItems.map((service) => (
+                        <DropdownMenuItem key={service.name} asChild>
+                          <Link
+                            to={service.href}
+                            className="w-full px-3 py-2 text-sm hover:bg-gray-50 cursor-pointer"
+                          >
+                            {service.name}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                )}
+              </span>
+            ))}
 
             <Button className="ml-4 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
               Get Started
