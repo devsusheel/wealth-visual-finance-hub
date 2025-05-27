@@ -12,6 +12,10 @@ import Updates from "./pages/Updates";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import HomeLoans from "./pages/HomeLoans";
+import Refinancing from "./pages/Refinancing";
+import CommercialLoans from "./pages/CommercialLoans";
+import CarLoans from "./pages/CarLoans";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +28,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/home-loans" element={<HomeLoans />} />
+          <Route path="/services/refinancing" element={<Refinancing />} />
+          <Route path="/services/commercial-loans" element={<CommercialLoans />} />
+          <Route path="/services/car-loans" element={<CarLoans />} />
           <Route path="/calculators" element={<Calculators />} />
           <Route path="/about" element={<About />} />
           <Route path="/updates" element={<Updates />} />

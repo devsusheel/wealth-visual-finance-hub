@@ -1,8 +1,14 @@
 
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Calculator, Home, Building2 } from "lucide-react";
+import { Menu, X, Calculator, Home, Building2, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +16,6 @@ const Navbar = () => {
 
   const navigation = [
     { name: "Home", href: "/", icon: Home },
-    { name: "Services", href: "/services", icon: Building2 },
     { name: "Calculators", href: "/calculators", icon: Calculator },
     { name: "About Us", href: "/about" },
     { name: "Latest Updates", href: "/updates" },
@@ -18,7 +23,16 @@ const Navbar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
+  const serviceItems = [
+    { name: "Home Loans", href: "/services/home-loans" },
+    { name: "Refinancing", href: "/services/refinancing" },
+    { name: "Commercial Loans", href: "/services/commercial-loans" },
+    { name: "Car Loans", href: "/services/car-loans" },
+    { name: "All Services", href: "/services" },
+  ];
+
   const isActive = (href: string) => location.pathname === href;
+  const isServicesActive = () => location.pathname.startsWith('/services');
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
@@ -48,6 +62,35 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center space-x-1 ${
+                    isServicesActive()
+                      ? "bg-blue-100 text-blue-700"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                  }`}
+                >
+                  <span>Services</span>
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56 bg-white border shadow-lg">
+                {serviceItems.map((service) => (
+                  <DropdownMenuItem key={service.name} asChild>
+                    <Link
+                      to={service.href}
+                      className="w-full px-3 py-2 text-sm hover:bg-gray-50 cursor-pointer"
+                    >
+                      {service.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button className="ml-4 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600">
               Get Started
             </Button>
@@ -82,6 +125,19 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
+              <div className="px-3 py-2">
+                <div className="text-gray-500 text-sm font-medium mb-2">Services</div>
+                {serviceItems.map((service) => (
+                  <Link
+                    key={service.name}
+                    to={service.href}
+                    className="block px-3 py-1 text-sm text-gray-600 hover:text-blue-600"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {service.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         )}

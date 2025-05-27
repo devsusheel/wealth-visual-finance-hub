@@ -1,9 +1,10 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import HomeLoanCalculator from "@/components/HomeLoanCalculator";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, CheckCircle, Star, Users, Calculator, Shield, Clock, TrendingUp } from "lucide-react";
+import { ArrowRight, CheckCircle, Star, Users, Calculator, Shield, Clock, TrendingUp, Home, RefreshCw, Building2, Car } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -27,6 +28,41 @@ const Index = () => {
       icon: TrendingUp,
       title: "Best Rates",
       description: "Competitive interest rates and flexible terms"
+    }
+  ];
+
+  const services = [
+    {
+      icon: Home,
+      title: "Home Loans",
+      description: "First home buyers to investment properties with competitive rates",
+      features: ["First Home Buyer Programs", "Investment Loans", "Low Deposit Options"],
+      color: "from-blue-600 to-cyan-500",
+      link: "/services/home-loans"
+    },
+    {
+      icon: RefreshCw,
+      title: "Refinancing",
+      description: "Save money with better rates and unlock your home's equity",
+      features: ["Lower Interest Rates", "Cash Out Options", "Debt Consolidation"],
+      color: "from-green-600 to-emerald-500",
+      link: "/services/refinancing"
+    },
+    {
+      icon: Building2,
+      title: "Commercial",
+      description: "Business and commercial financing for growth and expansion",
+      features: ["Equipment Finance", "Commercial Property", "Working Capital"],
+      color: "from-purple-600 to-indigo-500",
+      link: "/services/commercial-loans"
+    },
+    {
+      icon: Car,
+      title: "Car Loans",
+      description: "Competitive auto financing for new and used vehicles",
+      features: ["New & Used Cars", "Quick Approval", "Flexible Terms"],
+      color: "from-orange-600 to-red-500",
+      link: "/services/car-loans"
     }
   ];
 
@@ -132,30 +168,46 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Preview */}
+      {/* Home Loan Calculator */}
+      <HomeLoanCalculator />
+
+      {/* Enhanced Services Section */}
       <section className="py-20 bg-gradient-to-r from-blue-900 to-cyan-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Our Services</h2>
             <p className="text-xl text-blue-100">Comprehensive financial solutions for every need</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-blue-800 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2">Home Loans</h3>
-              <p className="text-blue-200">First home buyers to investment properties</p>
-            </div>
-            <div className="text-center p-6 bg-blue-800 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2">Refinancing</h3>
-              <p className="text-blue-200">Save money with better rates</p>
-            </div>
-            <div className="text-center p-6 bg-blue-800 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2">Commercial</h3>
-              <p className="text-blue-200">Business and commercial financing</p>
-            </div>
-            <div className="text-center p-6 bg-blue-800 rounded-lg">
-              <h3 className="text-xl font-semibold mb-2">Car Loans</h3>
-              <p className="text-blue-200">Competitive auto financing</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className="bg-blue-800 border-0 hover:bg-blue-700 transition-all duration-300 group">
+                <CardHeader>
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className={`w-12 h-12 bg-gradient-to-r ${service.color} rounded-lg flex items-center justify-center`}>
+                      <service.icon className="h-6 w-6 text-white" />
+                    </div>
+                    <CardTitle className="text-white text-xl">{service.title}</CardTitle>
+                  </div>
+                  <p className="text-blue-200">{service.description}</p>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-2 text-blue-100">
+                        <CheckCircle className="h-4 w-4 text-cyan-300" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to={service.link}>
+                    <Button className={`w-full bg-gradient-to-r ${service.color} hover:opacity-90 group-hover:shadow-lg transition-all`}>
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
           </div>
           <div className="text-center mt-12">
             <Link to="/services">
