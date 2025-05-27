@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Phone, Mail, Clock, MessageSquare, Calendar, Users, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageSquare, Calendar, Users, CheckCircle, Calculator } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
