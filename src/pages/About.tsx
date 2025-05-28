@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -73,15 +72,15 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-white text-black">
+
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
+      <section className="bg-gradient-to-br from-[var(--brand-green)] via-[var(--brand-green)] to-[var(--brand-yellow)] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Users className="h-16 w-16 text-[#EDA208] mx-auto mb-6" />
-            <h1 className="text-5xl font-bold mb-6 text-white drop-shadow-lg">About FinanceHub</h1>
-            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+            <h1 className="text-5xl font-bold mb-6">About FinanceHub</h1>
+            <p className="text-xl text-white max-w-3xl mx-auto">
               We're passionate about helping Australians achieve their property dreams through 
               expert mortgage advice and personalized financial solutions.
             </p>
@@ -90,7 +89,7 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 bg-[#EDA208]/10">
+      <section className="py-20 bg-[var(--brand-yellow)]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -102,12 +101,12 @@ const About = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-[#678E19]/40 rounded-2xl transform rotate-3"></div>
-              <div className="relative bg-[#EDA208]/20 rounded-2xl p-8 shadow-2xl">
+              <div className="absolute inset-0 bg-[var(--brand-green)]/40 rounded-2xl transform rotate-3"></div>
+              <div className="relative bg-[var(--brand-yellow)]/20 rounded-2xl p-8 shadow-2xl">
                 <div className="grid grid-cols-2 gap-6">
                   {stats.map((stat, idx) => (
                     <div key={idx} className="text-center">
-                      <div className="text-3xl font-bold text-[#678E19]">{stat.number}</div>
+                      <div className="text-3xl font-bold text-[var(--brand-green)]">{stat.number}</div>
                       <div className="text-black">{stat.label}</div>
                     </div>
                   ))}
@@ -119,25 +118,28 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-[#EDA208]/10">
+      <section className="py-20 bg-[var(--brand-yellow)]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Card className="bg-white text-black border-2 border-[#678E19]">
+            {/* <Card className="bg-[var(--brand-green)] text-white"> */}
+
+            <Card className="bg-white text-black border-2 border-[var(--brand-green)]">
                <CardHeader>
                 <div className="flex items-center space-x-3">
-                <Target className="h-8 w-8 text-[#678E19]" />
+                <Target className="h-8 w-8 text-[var(--brand-green)]" />
                 <CardTitle className="text-2xl">Our Mission</CardTitle>
                 </div>
                 </CardHeader>
                <CardContent>
+
                 <p className="text-lg">To empower Australians to achieve their property and financial goals through expert advice, innovative solutions, and exceptional service.</p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white text-black border-2 border-[#EDA208]">
+            <Card className="bg-white text-black border-2 border-[var(--brand-yellow)]">
             <CardHeader>
             <div className="flex items-center space-x-3">
-            <Eye className="h-8 w-8 text-[#EDA208]" />
+            <Eye className="h-8 w-8 text-[var(--brand-yellow)]" />
             <CardTitle className="text-2xl">Our Vision</CardTitle>
             </div>
             </CardHeader>
@@ -150,7 +152,7 @@ const About = () => {
       </section>
 
       {/* Our Values */}
-      <section className="py-20 bg-[#678E19]/10">
+      <section className="py-20 bg-[var(--brand-green)]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-black mb-4">Our Values</h2>
@@ -160,7 +162,7 @@ const About = () => {
             {values.map((value, idx) => (
               <Card key={idx} className="text-center bg-white hover:shadow-lg">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-[#678E19] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-[var(--brand-green)] rounded-full flex items-center justify-center mx-auto mb-4">
                     <value.icon className="h-8 w-8 text-white" />
                   </div>
                   <CardTitle className="text-xl text-black">{value.title}</CardTitle>
@@ -175,7 +177,7 @@ const About = () => {
       </section>
 
       {/* Our Team */}
-      <section className="py-20 bg-[#EDA208]/10">
+      <section className="py-20 bg-[var(--brand-yellow)]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-black mb-4">Meet Our Team</h2>
@@ -185,11 +187,11 @@ const About = () => {
             {team.map((member, idx) => (
               <Card key={idx} className="bg-white hover:shadow-lg">
                 <CardHeader className="text-center">
-                  <div className="w-20 h-20 bg-[#678E19] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-20 h-20 bg-[var(--brand-green)] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="h-10 w-10 text-white" />
                   </div>
                   <CardTitle className="text-lg text-black">{member.name}</CardTitle>
-                  <p className="text-[#678E19] font-medium">{member.role}</p>
+                  <p className="text-[var(--brand-green)] font-medium">{member.role}</p>
                   <p className="text-sm text-black">{member.experience}</p>
                 </CardHeader>
                 <CardContent>
@@ -202,7 +204,7 @@ const About = () => {
       </section>
 
       {/* Achievements */}
-      <section className="py-20 bg-[#678E19]/10">
+      <section className="py-20 bg-[var(--brand-green)]/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-black mb-4">Our Achievements</h2>
@@ -213,7 +215,7 @@ const About = () => {
               <ul className="space-y-4">
                 {achievements.map((ach, idx) => (
                   <li key={idx} className="flex items-center space-x-3">
-                    <CheckCircle className="h-6 w-6 text-[#678E19] flex-shrink-0" />
+                    <CheckCircle className="h-6 w-6 text-[var(--brand-green)] flex-shrink-0" />
                     <span className="text-black">{ach}</span>
                   </li>
                 ))}
@@ -224,7 +226,7 @@ const About = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-[#EDA208]/10">
+      <section className="py-20 bg-[var(--brand-yellow)]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-black mb-4">Why Choose FinanceHub?</h2>
@@ -232,17 +234,17 @@ const About = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6 bg-white rounded-lg">
-              <Shield className="h-12 w-12 text-[#678E19] mx-auto mb-4" />
+              <Shield className="h-12 w-12 text-[var(--brand-green)] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-black">Fully Licensed & Insured</h3>
               <p className="text-black">Complete peace of mind with full licensing and professional indemnity insurance</p>
             </div>
             <div className="text-center p-6 bg-white rounded-lg">
-              <Users className="h-12 w-12 text-[#678E19] mx-auto mb-4" />
+              <Users className="h-12 w-12 text-[var(--brand-green)] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-black">Personal Service</h3>
               <p className="text-black">Dedicated brokers who get to know you and your unique financial situation</p>
             </div>
             <div className="text-center p-6 bg-white rounded-lg">
-              <Award className="h-12 w-12 text-[#678E19] mx-auto mb-4" />
+              <Award className="h-12 w-12 text-[var(--brand-green)] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-black">Award-Winning Service</h3>
               <p className="text-black">Recognized for excellence in customer service and industry innovation</p>
             </div>
@@ -251,13 +253,13 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-[#678E19]/10">
+      <section className="py-20 bg-[var(--brand-green)]/10">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-black mb-4">Ready to Work With Us?</h2>
           <p className="text-xl text-black mb-8">Join thousands of satisfied customers who have trusted FinanceHub with their home financing needs.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-[#678E19] hover:bg-green-700 text-white px-8 py-3">Get Started Today</Button>
-            <Button size="lg" variant="outline" className="border-[#678E19] text-[#678E19] hover:bg-[#678E19]/10 px-8 py-3">Contact Our Team</Button>
+            <Button size="lg" className="btn-brand-green px-8 py-3">Get Started Today</Button>
+            <Button size="lg" variant="outline" className="border-[var(--brand-green)] text-[var(--brand-green)] hover:bg-[var(--brand-green)]/10 px-8 py-3">Contact Our Team</Button>
           </div>
         </div>
       </section>

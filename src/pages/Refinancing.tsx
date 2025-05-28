@@ -11,12 +11,12 @@ const Refinancing = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
+      <section className="bg-gradient-to-br from-brand-green via-green-700 to-green-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <RefreshCw className="h-16 w-16 text-[#EDA208] mx-auto mb-6" />
-            <h1 className="text-5xl font-bold mb-6 text-white drop-shadow-lg">Refinancing</h1>
-            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+            <RefreshCw className="h-16 w-16 text-brand-yellow mx-auto mb-6" />
+            <h1 className="text-5xl font-bold mb-6">Refinancing</h1>
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               Save thousands on your mortgage with better rates and terms. 
               Our refinancing solutions help you reduce payments and unlock equity.
             </p>
@@ -34,7 +34,7 @@ const Refinancing = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card className="text-center hover:shadow-xl transition-shadow">
               <CardHeader>
-                <TrendingDown className="h-12 w-12 text-[#678E19] mx-auto mb-4" />
+                <TrendingDown className="h-12 w-12 text-brand-green mx-auto mb-4" />
                 <CardTitle>Lower Interest Rates</CardTitle>
               </CardHeader>
               <CardContent>
@@ -43,7 +43,7 @@ const Refinancing = () => {
             </Card>
             <Card className="text-center hover:shadow-xl transition-shadow">
               <CardHeader>
-                <PiggyBank className="h-12 w-12 text-[#678E19] mx-auto mb-4" />
+                <PiggyBank className="h-12 w-12 text-brand-green mx-auto mb-4" />
                 <CardTitle>Access Equity</CardTitle>
               </CardHeader>
               <CardContent>
@@ -52,7 +52,7 @@ const Refinancing = () => {
             </Card>
             <Card className="text-center hover:shadow-xl transition-shadow">
               <CardHeader>
-                <Home className="h-12 w-12 text-[#678E19] mx-auto mb-4" />
+                <Home className="h-12 w-12 text-brand-green mx-auto mb-4" />
                 <CardTitle>Better Features</CardTitle>
               </CardHeader>
               <CardContent>
@@ -64,11 +64,11 @@ const Refinancing = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#EDA208] to-yellow-500 text-black">
+      <section className="py-20 bg-gradient-to-r from-brand-yellow to-yellow-600 text-black">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">Start Saving Today</h2>
-          <p className="text-xl mb-8 text-gray-800">Find out how much you could save by refinancing your home loan</p>
-          <Button size="lg" className="bg-[#678E19] hover:bg-green-700 text-white px-8 py-3 font-semibold">
+          <h2 className="text-4xl font-bold mb-4">Start Saving Today</h2>
+          <p className="text-xl mb-8">Find out how much you could save by refinancing your home loan</p>
+          <Button size="lg" className="bg-brand-green hover:bg-green-700 text-white px-8 py-3 font-semibold">
             Get Refinancing Quote
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
