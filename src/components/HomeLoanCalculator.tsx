@@ -26,7 +26,7 @@ const HomeLoanCalculator = () => {
     setMonthlyPayment(payment);
   };
 
-  const formatCurrency = (amount) => {
+  const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -35,10 +35,10 @@ const HomeLoanCalculator = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Loan Calculator</h2>
+          <h2 className="text-4xl font-bold text-[#678E19] mb-4">Loan Calculator</h2>
           <p className="text-xl text-gray-600">Calculate your monthly repayments easily with our interactive tool.</p>
         </div>
         
@@ -47,7 +47,7 @@ const HomeLoanCalculator = () => {
           <div className="lg:col-span-2">
             <Card className="h-full">
               <CardHeader>
-                <CardTitle className="text-2xl text-blue-600 flex items-center">
+                <CardTitle className="text-2xl text-[#678E19] flex items-center">
                   <Calculator className="h-6 w-6 mr-2" />
                   Loan Calculator
                 </CardTitle>
@@ -57,10 +57,10 @@ const HomeLoanCalculator = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <DollarSign className="h-5 w-5 text-cyan-500" />
+                      <DollarSign className="h-5 w-5 text-[#678E19]" />
                       <span className="text-lg font-medium">Loan Amount</span>
                     </div>
-                    <span className="text-xl font-bold text-cyan-500">
+                    <span className="text-xl font-bold text-[#678E19]">
                       {formatCurrency(loanAmount)}
                     </span>
                   </div>
@@ -82,10 +82,10 @@ const HomeLoanCalculator = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <Percent className="h-5 w-5 text-cyan-500" />
+                      <Percent className="h-5 w-5 text-[#678E19]" />
                       <span className="text-lg font-medium">Interest Rate</span>
                     </div>
-                    <span className="text-xl font-bold text-cyan-500">
+                    <span className="text-xl font-bold text-[#678E19]">
                       {interestRate.toFixed(1)}%
                     </span>
                   </div>
@@ -107,10 +107,10 @@ const HomeLoanCalculator = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <Calendar className="h-5 w-5 text-cyan-500" />
+                      <Calendar className="h-5 w-5 text-[#678E19]" />
                       <span className="text-lg font-medium">Loan Term</span>
                     </div>
-                    <span className="text-xl font-bold text-cyan-500">
+                    <span className="text-xl font-bold text-[#678E19]">
                       {loanTerm} Years
                     </span>
                   </div>
@@ -128,7 +128,7 @@ const HomeLoanCalculator = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white py-3">
+                <Button className="w-full bg-[#678E19] hover:bg-[#678E19]/90 text-white py-3">
                   Explore More Financial Calculators
                 </Button>
               </CardContent>
@@ -137,28 +137,28 @@ const HomeLoanCalculator = () => {
 
           {/* Results */}
           <div className="lg:col-span-1">
-            <Card className="bg-gradient-to-br from-blue-600 to-cyan-600 text-white h-full">
+            <Card className="bg-gradient-to-br from-[#678E19] to-green-600 text-white h-full">
               <CardHeader>
                 <CardTitle className="text-white text-xl">Your Estimated Payment</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="bg-cyan-400 rounded-lg p-6 text-center">
-                  <p className="text-blue-900 font-medium mb-2">Approx Monthly</p>
-                  <p className="text-3xl font-bold text-blue-900">
+                <div className="bg-[#EDA208] rounded-lg p-6 text-center">
+                  <p className="text-black font-medium mb-2">Approx Monthly</p>
+                  <p className="text-3xl font-bold text-black">
                     {formatCurrency(monthlyPayment)}
                   </p>
                 </div>
 
-                <div className="bg-blue-700 rounded-lg p-4">
+                <div className="bg-green-700 rounded-lg p-4">
                   <div className="flex items-start space-x-2">
-                    <div className="w-2 h-2 bg-cyan-300 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-blue-100 text-sm">
+                    <div className="w-2 h-2 bg-[#EDA208] rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-green-100 text-sm">
                       This is an estimated figure only and may vary. For a complete personalized assessment, contact us.
                     </p>
                   </div>
                 </div>
 
-                <Button className="w-full bg-cyan-400 hover:bg-cyan-300 text-blue-900 font-semibold py-3">
+                <Button className="w-full bg-[#EDA208] hover:bg-[#EDA208]/90 text-black font-semibold py-3">
                   Contact Us Now
                 </Button>
               </CardContent>

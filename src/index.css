@@ -1,3 +1,4 @@
+
 /* src/index.css */
 
 /* 1. Tailwind base/components/utilities */
@@ -21,10 +22,10 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 214.3 31.8% 91.4%;
 
-    --primary: 170 100% 41.2%;
+    --primary: 86 69% 32%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 231 100% 69%;
+    --secondary: 47 95% 48%;
     --secondary-foreground: 222.2 84% 4.9%;
 
     --destructive: 0 84% 60%;
@@ -33,11 +34,8 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 190 100% 30%;
+    --accent: 86 69% 32%;
     --accent-foreground: 0 0% 100%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
 
     --brand-green: #678E19;
     --brand-yellow: #EDA208;
@@ -46,6 +44,18 @@
   /* Your existing utility shorthands */
   .text-brand-yellow {
     color: #EDA208;
+  }
+
+  .text-brand-green {
+    color: #678E19;
+  }
+
+  .bg-brand-green {
+    background-color: #678E19;
+  }
+
+  .bg-brand-yellow {
+    background-color: #EDA208;
   }
 
   .border-brand-green {
@@ -102,17 +112,11 @@
 
   /* Brand‐green primary buttons */
   .btn-brand-green {
-    @apply bg-[var(--brand-green)] text-white;
-  }
-  .btn-brand-green:hover {
-    background-color: rgba(103, 142, 25, 0.9);
+    @apply bg-[var(--brand-green)] text-white px-4 py-2 rounded-md font-medium hover:opacity-90 transition-opacity;
   }
 
   /* Brand‐yellow accent buttons */
   .btn-brand-yellow {
-    @apply bg-[var(--brand-yellow)] text-black;
-  }
-  .btn-brand-yellow:hover {
-    background-color: rgba(237, 162, 8, 0.9);
+    @apply bg-[var(--brand-yellow)] text-black px-4 py-2 rounded-md font-medium hover:opacity-90 transition-opacity;
   }
 }

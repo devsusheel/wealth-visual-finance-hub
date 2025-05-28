@@ -87,7 +87,7 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section with House Background */}
-      <section className="relative bg-gradient-to-br from-brand-green via-green-700 to-green-800 text-white">
+      <section className="relative bg-gradient-to-br from-[#678E19] via-green-700 to-green-800 text-white">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -100,36 +100,36 @@ const Index = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-white">
                 Your Dream Home
-                <span className="block text-brand-yellow">Starts Here</span>
+                <span className="block text-[#EDA208]">Starts Here</span>
               </h1>
               <p className="text-xl text-green-100">
                 Get the best mortgage rates and expert financial advice. 
                 Professional guidance to secure your perfect home loan.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-brand-yellow hover:bg-yellow-600 text-black px-8 py-3 font-semibold">
+                <Button size="lg" className="bg-[#EDA208] hover:bg-[#EDA208]/90 text-black px-8 py-3 font-semibold">
                   Free Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Link to="/services">
-                  <Button size="lg" className="bg-white text-brand-green hover:bg-gray-100 px-8 py-3 font-semibold">
+                  <Button size="lg" className="bg-white text-[#678E19] hover:bg-gray-100 px-8 py-3 font-semibold">
                     Explore Our Services
                   </Button>
                 </Link>
               </div>
               <div className="grid grid-cols-3 gap-8 pt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-brand-yellow">$2B+</div>
+                  <div className="text-3xl font-bold text-[#EDA208]">$2B+</div>
                   <div className="text-green-200">Loans Processed</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-brand-yellow">10K+</div>
+                  <div className="text-3xl font-bold text-[#EDA208]">10K+</div>
                   <div className="text-green-200">Happy Customers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-brand-yellow">4.9★</div>
+                  <div className="text-3xl font-bold text-[#EDA208]">4.9★</div>
                   <div className="text-green-200">Customer Rating</div>
                 </div>
               </div>
@@ -142,17 +142,17 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose FinanceHub?</h2>
+            <h2 className="text-4xl font-bold text-[#678E19] mb-4">Why Choose FinanceHub?</h2>
             <p className="text-xl text-gray-600">We make home financing simple, fast, and affordable</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-r from-brand-green to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-[#678E19] to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                     <feature.icon className="h-8 w-8 text-white" />
                   </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  <CardTitle className="text-xl text-[#678E19]">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600">{feature.description}</p>
@@ -164,10 +164,10 @@ const Index = () => {
       </section>
 
       {/* Enhanced Services Section */}
-      <section className="py-20 bg-gradient-to-r from-brand-green to-green-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-[#678E19] to-green-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+            <h2 className="text-4xl font-bold mb-4 text-white">Our Services</h2>
             <p className="text-xl text-green-100">Comprehensive financial solutions for every need</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -175,7 +175,7 @@ const Index = () => {
               <Card key={index} className="bg-green-800 border-0 hover:bg-green-700 transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-brand-yellow rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#EDA208] rounded-lg flex items-center justify-center">
                       <service.icon className="h-6 w-6 text-black" />
                     </div>
                     <CardTitle className="text-white text-xl">{service.title}</CardTitle>
@@ -186,13 +186,13 @@ const Index = () => {
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center space-x-2 text-green-100">
-                        <CheckCircle className="h-4 w-4 text-brand-yellow" />
+                        <CheckCircle className="h-4 w-4 text-[#EDA208]" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Link to={service.link}>
-                    <Button className="w-full bg-brand-yellow hover:bg-yellow-600 text-black font-semibold group-hover:shadow-lg transition-all">
+                    <Button className="w-full bg-[#EDA208] hover:bg-[#EDA208]/90 text-black font-semibold group-hover:shadow-lg transition-all">
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -203,7 +203,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-12">
             <Link to="/services">
-              <Button size="lg" className="bg-brand-yellow hover:bg-yellow-600 text-black font-semibold">
+              <Button size="lg" className="bg-[#EDA208] hover:bg-[#EDA208]/90 text-black font-semibold">
                 View All Services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -216,7 +216,7 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+            <h2 className="text-4xl font-bold text-[#678E19] mb-4">What Our Customers Say</h2>
             <p className="text-xl text-gray-600">Real stories from real customers</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -225,12 +225,12 @@ const Index = () => {
                 <CardContent className="pt-6">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-brand-yellow fill-current" />
+                      <Star key={i} className="h-5 w-5 text-[#EDA208] fill-current" />
                     ))}
                   </div>
                   <p className="text-gray-600 mb-4">"{testimonial.content}"</p>
                   <div className="border-t pt-4">
-                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                    <p className="font-semibold text-[#678E19]">{testimonial.name}</p>
                     <p className="text-sm text-gray-500">{testimonial.role}</p>
                   </div>
                 </CardContent>
@@ -241,16 +241,16 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-brand-yellow to-yellow-600 text-black">
+      <section className="py-20 bg-gradient-to-r from-[#EDA208] to-yellow-600 text-black">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8">Join thousands of satisfied customers who chose FinanceHub for their home loans</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-brand-green hover:bg-green-700 text-white px-8 py-3 font-semibold">
+            <Button size="lg" className="bg-[#678E19] hover:bg-[#678E19]/90 text-white px-8 py-3 font-semibold">
               Apply Now
             </Button>
             <Link to="/contact">
-              <Button size="lg" className="bg-white text-brand-green hover:bg-gray-100 px-8 py-3 font-semibold border-2 border-brand-green">
+              <Button size="lg" className="bg-white text-[#678E19] hover:bg-gray-100 px-8 py-3 font-semibold border-2 border-[#678E19]">
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
