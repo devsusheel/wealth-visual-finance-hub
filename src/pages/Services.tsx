@@ -89,7 +89,7 @@ const Services = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-green to-green-600 text-white py-20">
+      <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6 text-white drop-shadow-lg">Our Financial Services</h1>
@@ -147,7 +147,7 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((step, index) => (
               <div key={index} className="text-center relative">
-                <div className="w-16 h-16 bg-gradient-to-r from-brand-green to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#678E19] to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-xl font-bold">
                   {step.step}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
@@ -164,7 +164,7 @@ const Services = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-r from-brand-green to-green-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-[#678E19] to-green-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-white">Why Choose Our Services?</h2>
@@ -172,17 +172,17 @@ const Services = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center p-6 bg-green-700 bg-opacity-50 rounded-lg">
-              <Calculator className="h-12 w-12 text-brand-yellow mx-auto mb-4" />
+              <Calculator className="h-12 w-12 text-[#EDA208] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-white">Expert Advice</h3>
               <p className="text-green-100">Professional mortgage brokers with years of experience</p>
             </div>
             <div className="text-center p-6 bg-green-700 bg-opacity-50 rounded-lg">
-              <Users className="h-12 w-12 text-brand-yellow mx-auto mb-4" />
+              <Users className="h-12 w-12 text-[#EDA208] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-white">Personalized Service</h3>
               <p className="text-green-100">Tailored solutions that fit your unique situation</p>
             </div>
             <div className="text-center p-6 bg-green-700 bg-opacity-50 rounded-lg">
-              <CheckCircle className="h-12 w-12 text-brand-yellow mx-auto mb-4" />
+              <CheckCircle className="h-12 w-12 text-[#EDA208] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2 text-white">Proven Results</h3>
               <p className="text-green-100">Thousands of successful loan approvals and happy customers</p>
             </div>
@@ -198,10 +198,10 @@ const Services = () => {
             Get in touch with our experts today and discover how we can help you achieve your financial goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-brand-green to-green-600 hover:from-green-700 hover:to-green-700 px-8 py-3">
+            <Button size="lg" className="bg-gradient-to-r from-[#678E19] to-green-600 hover:from-green-700 hover:to-green-700 px-8 py-3">
               Get Pre-Approved
             </Button>
-            <Button size="lg" variant="outline" className="border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-8 py-3">
+            <Button size="lg" variant="outline" className="border-[#678E19] text-[#678E19] hover:bg-[#678E19] hover:text-white px-8 py-3">
               Calculate Payments
             </Button>
           </div>
