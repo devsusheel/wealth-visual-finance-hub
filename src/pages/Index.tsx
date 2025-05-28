@@ -163,38 +163,40 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced Services Section */}
-      <section className="py-20 bg-gradient-to-r from-[#678E19] to-green-700 text-white">
+      {/* Enhanced Services Section - Updated Design */}
+      <section className="py-20 bg-gradient-to-br from-green-50 to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">Our Services</h2>
-            <p className="text-xl text-green-100">Comprehensive financial solutions for every need</p>
+            <h2 className="text-4xl font-bold mb-4 text-[#678E19]">Our Services</h2>
+            <p className="text-xl text-gray-600">Comprehensive financial solutions for every need</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="bg-green-800 border-0 hover:bg-green-700 transition-all duration-300 group">
+              <Card key={index} className="bg-white border-2 border-gray-100 hover:border-[#678E19] hover:shadow-xl transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-center space-x-4 mb-4">
-                    <div className="w-12 h-12 bg-[#EDA208] rounded-lg flex items-center justify-center">
-                      <service.icon className="h-6 w-6 text-black" />
+                    <div className="w-16 h-16 bg-gradient-to-r from-[#678E19] to-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <service.icon className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-white text-xl">{service.title}</CardTitle>
+                    <div>
+                      <CardTitle className="text-[#678E19] text-2xl group-hover:text-green-700 transition-colors">{service.title}</CardTitle>
+                      <p className="text-gray-600 mt-2">{service.description}</p>
+                    </div>
                   </div>
-                  <p className="text-green-200">{service.description}</p>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-3 mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-2 text-green-100">
-                        <CheckCircle className="h-4 w-4 text-[#EDA208]" />
-                        <span className="text-sm">{feature}</span>
+                      <li key={featureIndex} className="flex items-center space-x-3 text-gray-700">
+                        <CheckCircle className="h-5 w-5 text-[#EDA208] flex-shrink-0" />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Link to={service.link}>
-                    <Button className="w-full bg-[#EDA208] hover:bg-[#EDA208]/90 text-black font-semibold group-hover:shadow-lg transition-all">
+                    <Button className="w-full bg-[#678E19] hover:bg-green-700 text-white font-semibold group-hover:shadow-lg transition-all py-3">
                       Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                 </CardContent>
@@ -203,7 +205,7 @@ const Index = () => {
           </div>
           <div className="text-center mt-12">
             <Link to="/services">
-              <Button size="lg" className="bg-[#EDA208] hover:bg-[#EDA208]/90 text-black font-semibold">
+              <Button size="lg" className="bg-[#EDA208] hover:bg-[#EDA208]/90 text-black font-semibold px-8 py-4">
                 View All Services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
