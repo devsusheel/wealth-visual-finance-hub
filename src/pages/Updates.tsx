@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -32,7 +33,7 @@ const Updates = () => {
       date: "November 8, 2024",
       readTime: "10 min read",
       badge: "Trending",
-      badgeColor: "bg-[#678E19]"
+      badgeColor: "bg-blue-500"
     }
   ];
 
@@ -117,11 +118,11 @@ const Updates = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">Latest Updates</h1>
-            <p className="text-xl text-green-100 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
               Stay informed with the latest market trends, interest rate updates, 
               and mortgage industry news that could impact your financial decisions.
             </p>
@@ -141,7 +142,7 @@ const Updates = () => {
               <Card key={index} className="bg-white hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
-                    <update.icon className="h-8 w-8 text-[#678E19]" />
+                    <update.icon className="h-8 w-8 text-blue-600" />
                     <span className={`text-2xl ${getTrendColor(update.trend)}`}>
                       {getTrendIcon(update.trend)}
                     </span>
@@ -171,7 +172,7 @@ const Updates = () => {
             {latestNews.map((article, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="relative">
-                  <div className="h-48 bg-gradient-to-br from-[#678E19] to-green-500"></div>
+                  <div className="h-48 bg-gradient-to-br from-blue-600 to-cyan-500"></div>
                   <Badge className={`absolute top-4 left-4 ${article.badgeColor} text-white`}>
                     {article.badge}
                   </Badge>
@@ -190,7 +191,7 @@ const Updates = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                  <Button variant="outline" className="w-full border-[#678E19] text-[#678E19] hover:bg-[#678E19] hover:text-white">
+                  <Button variant="outline" className="w-full">
                     Read Full Article
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -218,7 +219,7 @@ const Updates = () => {
                             <span className="text-sm text-gray-500">•</span>
                             <span className="text-sm text-gray-500">{article.readTime}</span>
                           </div>
-                          <h3 className="text-lg font-semibold text-gray-900 mb-2 hover:text-[#678E19] cursor-pointer">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-2 hover:text-blue-600 cursor-pointer">
                             {article.title}
                           </h3>
                           <div className="flex items-center text-sm text-gray-500">
@@ -226,7 +227,7 @@ const Updates = () => {
                             {article.date}
                           </div>
                         </div>
-                        <ArrowRight className="h-5 w-5 text-gray-400 ml-4 cursor-pointer hover:text-[#678E19]" />
+                        <ArrowRight className="h-5 w-5 text-gray-400 ml-4 cursor-pointer hover:text-blue-600" />
                       </div>
                     </CardContent>
                   </Card>
@@ -237,15 +238,15 @@ const Updates = () => {
             {/* Sidebar */}
             <div className="space-y-8">
               {/* Newsletter Signup */}
-              <Card className="bg-gradient-to-br from-[#678E19] to-green-600 text-white">
+              <Card className="bg-gradient-to-br from-blue-600 to-cyan-500 text-white">
                 <CardHeader>
                   <CardTitle className="text-white">Stay Updated</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-green-100 mb-4">
+                  <p className="text-blue-100 mb-4">
                     Get the latest market updates and mortgage news delivered to your inbox.
                   </p>
-                  <Button className="w-full bg-[#EDA208] text-black hover:bg-[#EDA208]/90 font-semibold">
+                  <Button className="w-full bg-white text-blue-600 hover:bg-gray-100">
                     Subscribe to Newsletter
                   </Button>
                 </CardContent>
@@ -257,24 +258,24 @@ const Updates = () => {
                   <CardTitle>Quick Links</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <a href="#" className="block text-[#678E19] hover:underline">Current Interest Rates</a>
-                  <a href="#" className="block text-[#678E19] hover:underline">First Home Buyer Guide</a>
-                  <a href="#" className="block text-[#678E19] hover:underline">Refinancing Calculator</a>
-                  <a href="#" className="block text-[#678E19] hover:underline">Government Grants</a>
-                  <a href="#" className="block text-[#678E19] hover:underline">Investment Property Tips</a>
+                  <a href="#" className="block text-blue-600 hover:underline">Current Interest Rates</a>
+                  <a href="#" className="block text-blue-600 hover:underline">First Home Buyer Guide</a>
+                  <a href="#" className="block text-blue-600 hover:underline">Refinancing Calculator</a>
+                  <a href="#" className="block text-blue-600 hover:underline">Government Grants</a>
+                  <a href="#" className="block text-blue-600 hover:underline">Investment Property Tips</a>
                 </CardContent>
               </Card>
 
               {/* Contact CTA */}
-              <Card className="bg-green-50 border-green-200">
+              <Card className="bg-cyan-50 border-cyan-200">
                 <CardHeader>
-                  <CardTitle className="text-[#678E19]">Need Personal Advice?</CardTitle>
+                  <CardTitle className="text-cyan-800">Need Personal Advice?</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-green-700 mb-4">
+                  <p className="text-cyan-700 mb-4">
                     Speak with our mortgage experts for personalized guidance.
                   </p>
-                  <Button className="w-full bg-[#678E19] hover:bg-green-700 text-white">
+                  <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
                     Book a Consultation
                   </Button>
                 </CardContent>

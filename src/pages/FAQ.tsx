@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,7 +15,7 @@ const FAQ = () => {
     {
       icon: Home,
       title: "Home Loans",
-      color: "from-[#678E19] to-green-500",
+      color: "from-blue-600 to-cyan-500",
       questions: [
         {
           question: "What deposit do I need to buy a home?",
@@ -37,7 +38,7 @@ const FAQ = () => {
     {
       icon: DollarSign,
       title: "Rates & Fees",
-      color: "from-[#EDA208] to-yellow-500",
+      color: "from-green-600 to-emerald-500",
       questions: [
         {
           question: "What fees should I expect when getting a home loan?",
@@ -60,7 +61,7 @@ const FAQ = () => {
     {
       icon: FileText,
       title: "Application Process",
-      color: "from-green-600 to-[#678E19]",
+      color: "from-purple-600 to-indigo-500",
       questions: [
         {
           question: "What documents do I need for a home loan application?",
@@ -83,7 +84,7 @@ const FAQ = () => {
     {
       icon: Clock,
       title: "Refinancing",
-      color: "from-yellow-600 to-[#EDA208]",
+      color: "from-orange-600 to-red-500",
       questions: [
         {
           question: "When should I consider refinancing?",
@@ -118,11 +119,11 @@ const FAQ = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">Frequently Asked Questions</h1>
-            <p className="text-xl text-green-100 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
               Find answers to common questions about mortgages, home loans, and our services. 
               Can't find what you're looking for? Our experts are here to help.
             </p>
@@ -169,7 +170,7 @@ const FAQ = () => {
                       <Accordion type="single" collapsible className="w-full">
                         {category.questions.map((faq, index) => (
                           <AccordionItem key={index} value={`${categoryIndex}-${index}`} className="px-6">
-                            <AccordionTrigger className="text-left text-lg font-medium py-6 hover:text-[#678E19]">
+                            <AccordionTrigger className="text-left text-lg font-medium py-6 hover:text-blue-600">
                               {faq.question}
                             </AccordionTrigger>
                             <AccordionContent className="text-gray-600 pb-6">
@@ -190,30 +191,30 @@ const FAQ = () => {
       {/* Contact Section */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="bg-gradient-to-r from-[#678E19] to-green-600 text-white">
+          <Card className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white">
             <CardContent className="p-12 text-center">
               <h2 className="text-3xl font-bold mb-4">Still Have Questions?</h2>
-              <p className="text-xl text-green-100 mb-8">
+              <p className="text-xl text-blue-100 mb-8">
                 Our mortgage experts are here to help you with personalized advice and answers to your specific questions.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-center justify-center space-x-3 p-4 bg-green-700 rounded-lg">
+                <div className="flex items-center justify-center space-x-3 p-4 bg-blue-700 rounded-lg">
                   <Phone className="h-6 w-6" />
                   <div>
                     <div className="font-semibold">Call Us</div>
-                    <div className="text-green-200">1800 FINANCE</div>
+                    <div className="text-blue-200">1800 FINANCE</div>
                   </div>
                 </div>
-                <div className="flex items-center justify-center space-x-3 p-4 bg-green-700 rounded-lg">
+                <div className="flex items-center justify-center space-x-3 p-4 bg-blue-700 rounded-lg">
                   <Mail className="h-6 w-6" />
                   <div>
                     <div className="font-semibold">Email Us</div>
-                    <div className="text-green-200">help@financehub.com</div>
+                    <div className="text-blue-200">help@financehub.com</div>
                   </div>
                 </div>
               </div>
               <div className="mt-8">
-                <Button size="lg" className="bg-[#EDA208] text-black hover:bg-[#EDA208]/90 px-8 py-3 font-semibold">
+                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3">
                   Book a Free Consultation
                 </Button>
               </div>
@@ -232,7 +233,7 @@ const FAQ = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">💡</span>
                 </div>
                 <h3 className="font-semibold mb-2">Save for a Bigger Deposit</h3>
@@ -241,7 +242,7 @@ const FAQ = () => {
             </Card>
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📊</span>
                 </div>
                 <h3 className="font-semibold mb-2">Check Your Credit Score</h3>
@@ -250,7 +251,7 @@ const FAQ = () => {
             </Card>
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">📋</span>
                 </div>
                 <h3 className="font-semibold mb-2">Get Pre-Approved</h3>
@@ -259,7 +260,7 @@ const FAQ = () => {
             </Card>
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="p-6">
-                <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">🤝</span>
                 </div>
                 <h3 className="font-semibold mb-2">Use a Broker</h3>

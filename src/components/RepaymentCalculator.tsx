@@ -10,7 +10,6 @@ const RepaymentCalculator = () => {
   const [interestRate, setInterestRate] = useState(4.5);
   const [monthlyPayment, setMonthlyPayment] = useState(3000);
   const [repaymentPeriod, setRepaymentPeriod] = useState(0);
-  const [totalInterest, setTotalInterest] = useState(0);
 
   useEffect(() => {
     calculateRepaymentPeriod();
@@ -21,29 +20,22 @@ const RepaymentCalculator = () => {
     const monthlyRate = interestRate / 100 / 12;
     const payment = monthlyPayment;
     
-    if (payment <= principal * monthlyRate || payment <= 0) {
-      setRepaymentPeriod(0);
-      setTotalInterest(0);
+    if (payment <= principal * monthlyRate) {
+      setRepaymentPeriod(0); // Payment too low to cover interest
       return;
     }
     
     const months = Math.log(1 + (principal * monthlyRate) / payment) / 
                   Math.log(1 + monthlyRate) * -1;
     
-    const calculatedMonths = Math.ceil(months);
-    const totalPaid = payment * calculatedMonths;
-    const interestPaid = totalPaid - principal;
-    
-    setRepaymentPeriod(calculatedMonths);
-    setTotalInterest(interestPaid);
+    setRepaymentPeriod(Math.ceil(months));
   };
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
+      minimumFractionDigits: 2
     }).format(amount);
   };
 
@@ -159,22 +151,6 @@ const RepaymentCalculator = () => {
               <p className="text-2xl font-bold text-black">
                 {formatPeriod(repaymentPeriod)}
               </p>
-            </div>
-
-            <div className="space-y-4">
-              <div className="bg-green-700 rounded-lg p-4">
-                <div className="text-sm text-green-100 mb-1">Total Interest</div>
-                <div className="text-lg font-bold text-white">
-                  {formatCurrency(totalInterest)}
-                </div>
-              </div>
-              
-              <div className="bg-green-700 rounded-lg p-4">
-                <div className="text-sm text-green-100 mb-1">Total Amount Paid</div>
-                <div className="text-lg font-bold text-white">
-                  {formatCurrency(loanAmount + totalInterest)}
-                </div>
-              </div>
             </div>
 
             <div className="bg-green-700 rounded-lg p-4">
