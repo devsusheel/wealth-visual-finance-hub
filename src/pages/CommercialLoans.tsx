@@ -11,12 +11,12 @@ const CommercialLoans = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-green via-green-700 to-green-800 text-white py-20">
+      <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Building2 className="h-16 w-16 text-brand-yellow mx-auto mb-6" />
-            <h1 className="text-5xl font-bold mb-6">Commercial Loans</h1>
-            <p className="text-xl text-green-100 max-w-3xl mx-auto">
+            <h1 className="text-5xl font-bold mb-6 text-white drop-shadow-lg">Commercial Loans</h1>
+            <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed drop-shadow-md">
               Fuel your business growth with our comprehensive commercial financing solutions. 
               From equipment purchases to property acquisitions, we've got you covered.
             </p>
@@ -64,10 +64,10 @@ const CommercialLoans = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-brand-yellow to-yellow-600 text-black">
+      <section className="py-20 bg-gradient-to-r from-brand-yellow to-yellow-500 text-black">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold mb-4">Grow Your Business</h2>
-          <p className="text-xl mb-8">Get the funding you need to take your business to the next level</p>
+         <h2 className="text-4xl font-bold mb-4 text-gray-900">Grow Your Business</h2>
+          <p className="text-xl mb-8 text-gray-800">Get the funding you need to take your business to the next level</p>
           <Button size="lg" className="bg-brand-green hover:bg-green-700 text-white px-8 py-3 font-semibold">
             Apply for Commercial Finance
             <ArrowRight className="ml-2 h-5 w-5" />

@@ -26,7 +26,88 @@ const Calculator: FC = () => {
     weeklyPayment: 0,
   });
 
-  // Recalculate on change
+  // Loan comparison state
+  const [loan1, setLoan1] = useState({
+    amount: 250000,
+    term: 30,
+    introRate: 4.5,
+    introPeriod: 24,
+    ongoingRate: 5.5,
+    upfrontFee: 500,
+    monthlyFee: 10,
+  });
+  
+  const [loan2, setLoan2] = useState({
+    amount: 250000,
+    term: 30,
+    introRate: 4.5,
+    introPeriod: 24,
+    ongoingRate: 5.5,
+    upfrontFee: 500,
+    monthlyFee: 10,
+  });
+
+  // Extra repayment state
+  const [extraRepayment, setExtraRepayment] = useState({
+    loanAmount: 300000,
+    interestRate: 5.5,
+    loanTerm: 30,
+    paymentFrequency: "monthly",
+    startAfter: 0,
+    extraMonthlyPayment: 200,
+  });
+
+  // Mortgage switching state
+  const [currentLoan, setCurrentLoan] = useState({
+    amount: 0,
+    currentRate: 0,
+    term: 0,
+    regularFee: 0,
+    finalPayoutFee: 0,
+  });
+
+  const [newLoan, setNewLoan] = useState({
+    introTerm: 0,
+    introRate: 0,
+    revertRate: 0,
+    regularFee: 0,
+    upfrontFees: 0,
+  });
+
+  // Interest only state
+  const [interestOnly, setInterestOnly] = useState({
+    loanAmount: 400000,
+    interestRate: 5.5,
+    paymentFrequency: "monthly",
+    interestOnlyPeriod: 5,
+    totalLoanTerm: 30,
+  });
+
+  // Repayment time state
+  const [repaymentTime, setRepaymentTime] = useState({
+    currentBalance: 400000,
+    interestRate: 5.5,
+    monthlyPayment: 2500,
+  });
+
+  const [repaymentResults, setRepaymentResults] = useState({
+    years: 0,
+    months: 0,
+    totalInterest: 0,
+    calculated: false,
+  });
+
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    loanType: "Home Loan",
+    message: "",
+    verification: "",
+  });
+  const [error, setError] = useState<string | null>(null);
+
+  // Recalculate main loan on change
   useEffect(() => {
     const p = loanAmount;
     const r = interestRate / 100 / 12;
@@ -50,12 +131,126 @@ const Calculator: FC = () => {
     });
   }, [loanAmount, interestRate, loanTerm, paymentFrequency]);
 
+  // Dynamic calculation for repayment time
+  useEffect(() => {
+    const P = repaymentTime.currentBalance;
+    const r = repaymentTime.interestRate / 100 / 12; // Monthly interest rate
+    const M = repaymentTime.monthlyPayment;
+    
+    if (P <= 0 || r <= 0 || M <= 0) {
+      setRepaymentResults({ years: 0, months: 0, totalInterest: 0, calculated: false });
+      return;
+    }
+    
+    // Check if payment is sufficient to cover interest
+    const monthlyInterest = P * r;
+    if (M <= monthlyInterest) {
+      setRepaymentResults({ years: 0, months: 0, totalInterest: 0, calculated: false });
+      return;
+    }
+    
+    // Calculate number of payments: n = -log(1 - (r * P) / M) / log(1 + r)
+    const numerator = -Math.log(1 - (r * P) / M);
+    const denominator = Math.log(1 + r);
+    const totalPayments = Math.ceil(numerator / denominator);
+    
+    // Convert to years and months
+    const years = Math.floor(totalPayments / 12);
+    const months = totalPayments % 12;
+    
+    // Calculate total interest
+    const totalPaid = M * totalPayments;
+    const totalInterest = totalPaid - P;
+    
+    setRepaymentResults({
+      years,
+      months,
+      totalInterest,
+      calculated: true,
+    });
+  }, [repaymentTime.currentBalance, repaymentTime.interestRate, repaymentTime.monthlyPayment]);
+
   // Format USD
   const fmt = (amt: number) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
     }).format(amt);
+
+  // Calculation functions
+  const calculateLoanComparison = (loan) => {
+    const p = loan.amount;
+    const introMonthlyRate = loan.introRate / 100 / 12;
+    const ongoingMonthlyRate = loan.ongoingRate / 100 / 12;
+    const totalMonths = loan.term * 12;
+    const introMonths = loan.introPeriod;
+    
+    // Initial payment calculation
+    const initialPayment = p * (introMonthlyRate * Math.pow(1 + introMonthlyRate, totalMonths)) / 
+                          (Math.pow(1 + introMonthlyRate, totalMonths) - 1);
+    
+    // Ongoing payment calculation
+    const remainingBalance = p * Math.pow(1 + introMonthlyRate, introMonths) - 
+                           initialPayment * ((Math.pow(1 + introMonthlyRate, introMonths) - 1) / introMonthlyRate);
+    const remainingMonths = totalMonths - introMonths;
+    const ongoingPayment = remainingBalance * (ongoingMonthlyRate * Math.pow(1 + ongoingMonthlyRate, remainingMonths)) / 
+                          (Math.pow(1 + ongoingMonthlyRate, remainingMonths) - 1);
+    
+    const totalCost = (initialPayment * introMonths) + (ongoingPayment * remainingMonths) + 
+                     loan.upfrontFee + (loan.monthlyFee * totalMonths);
+    
+    return {
+      initialPayment: initialPayment || 0,
+      ongoingPayment: ongoingPayment || 0,
+      totalCost: totalCost || 0,
+    };
+  };
+
+  const calculateInterestOnly = () => {
+    const p = interestOnly.loanAmount;
+    const monthlyRate = interestOnly.interestRate / 100 / 12;
+    const interestOnlyMonths = interestOnly.interestOnlyPeriod * 12;
+    const totalMonths = interestOnly.totalLoanTerm * 12;
+    const principalMonths = totalMonths - interestOnlyMonths;
+    
+    // Interest only payment
+    const interestOnlyPayment = p * monthlyRate;
+    
+    // Principal & interest payment after interest-only period
+    const principalInterestPayment = p * (monthlyRate * Math.pow(1 + monthlyRate, principalMonths)) / 
+                                   (Math.pow(1 + monthlyRate, principalMonths) - 1);
+    
+    return {
+      interestOnlyPayment: interestOnlyPayment || 0,
+      principalInterestPayment: principalInterestPayment || 0,
+    };
+  };
+
+  const handleContactChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setContact({ ...contact, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    if (parseInt(contact.verification) !== 10) {
+      setError("Verification answer is incorrect.");
+      return;
+    }
+    alert(`Message sent for ${contact.name}`);
+    setContact({
+      name: "",
+      email: "",
+      phone: "",
+      loanType: "Home Loan",
+      message: "",
+      verification: "",
+    });
+  };
 
   // Function to render different calculators
   const renderCalculator = () => {
@@ -176,7 +371,7 @@ const Calculator: FC = () => {
           </>
         );
 
-      case "loan-comparison":
+      case "loan-comparison": {
         const loan1Results = calculateLoanComparison(loan1);
         const loan2Results = calculateLoanComparison(loan2);
         const initialDiff = loan1Results.initialPayment - loan2Results.initialPayment;
@@ -394,6 +589,7 @@ const Calculator: FC = () => {
             </CardContent>
           </>
         );
+      }
 
       case "extra-repayment":
         return (
@@ -625,7 +821,7 @@ const Calculator: FC = () => {
           </>
         );
 
-      case "interest-only":
+      case "interest-only": {
         const ioResults = calculateInterestOnly();
         return (
           <>
@@ -724,6 +920,7 @@ const Calculator: FC = () => {
             </CardContent>
           </>
         );
+      }
 
       case "borrowing-power":
         return (
@@ -800,7 +997,10 @@ const Calculator: FC = () => {
           </>
         );
 
-      case "repayment-time":
+      case "repayment-time": {
+        const monthlyInterest = (repaymentTime.currentBalance * repaymentTime.interestRate / 100 / 12);
+        const isPaymentTooLow = repaymentTime.monthlyPayment <= monthlyInterest && repaymentTime.monthlyPayment > 0;
+        
         return (
           <>
             <CardHeader className="pb-6 px-8 pt-8">
@@ -818,6 +1018,8 @@ const Calculator: FC = () => {
                   <input
                     type="number"
                     placeholder="e.g., 400000"
+                    value={repaymentTime.currentBalance}
+                    onChange={(e) => setRepaymentTime({...repaymentTime, currentBalance: Number(e.target.value)})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg text-base"
                   />
                 </div>
@@ -828,6 +1030,8 @@ const Calculator: FC = () => {
                     type="number"
                     step="0.1"
                     placeholder="e.g., 5.5"
+                    value={repaymentTime.interestRate}
+                    onChange={(e) => setRepaymentTime({...repaymentTime, interestRate: Number(e.target.value)})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg text-base"
                   />
                 </div>
@@ -837,28 +1041,66 @@ const Calculator: FC = () => {
                   <input
                     type="number"
                     placeholder="e.g., 2500"
+                    value={repaymentTime.monthlyPayment}
+                    onChange={(e) => setRepaymentTime({...repaymentTime, monthlyPayment: Number(e.target.value)})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg text-base"
                   />
+                  {isPaymentTooLow && (
+                    <p className="text-red-600 text-sm mt-1">
+                      Monthly payment must be higher than {fmt(monthlyInterest)} to cover interest
+                    </p>
+                  )}
                 </div>
                 
-                <button className="w-full bg-[#678E19] hover:bg-[#5a7916] text-white py-3 px-6 rounded-lg font-medium text-base transition-colors">
-                  Calculate Repayment Time
-                </button>
-                
-                <div className="mt-6 p-6 bg-gray-50 rounded-lg text-center">
-                  <p className="text-gray-600 text-sm mb-2">Time to Pay Off Loan</p>
-                  <p className="text-[#678E19] text-3xl font-bold">0 Years, 0 Months</p>
-                  <p className="text-gray-500 text-sm mt-2">Enter your details above to calculate</p>
+                <div className="mt-6 p-6 bg-gray-50 rounded-lg">
+                  <div className="text-center mb-4">
+                    <p className="text-gray-600 text-sm mb-2">Time to Pay Off Loan</p>
+                    <p className="text-[#678E19] text-3xl font-bold">
+                      {isPaymentTooLow ? 
+                        "Payment Too Low" :
+                        repaymentResults.calculated ? 
+                          `${repaymentResults.years} Years, ${repaymentResults.months} Months` : 
+                          "0 Years, 0 Months"
+                      }
+                    </p>
+                  </div>
+                  
+                  {repaymentResults.calculated && !isPaymentTooLow && (
+                    <div className="border-t pt-4 mt-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
+                        <div>
+                          <p className="text-gray-600 text-sm">Total Interest Paid</p>
+                          <p className="text-[#678E19] text-xl font-bold">{fmt(repaymentResults.totalInterest)}</p>
+                        </div>
+                        <div>
+                          <p className="text-gray-600 text-sm">Total Amount Paid</p>
+                          <p className="text-[#678E19] text-xl font-bold">
+                            {fmt(repaymentTime.currentBalance + repaymentResults.totalInterest)}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-center mt-4">
+                        <div className="bg-blue-50 p-3 rounded">
+                          <p className="text-blue-800 text-sm">
+                            Monthly Interest: {fmt(monthlyInterest)} | 
+                            Principal Payment: {fmt(repaymentTime.monthlyPayment - monthlyInterest)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </CardContent>
           </>
         );
+      }
 
       default:
         return null;
     }
   };
+
   const menu = [
     { id: "loan-repayment", label: "Loan Repayment Calculator" },
     { id: "loan-comparison", label: "Loan Comparison Calculator" },
@@ -868,147 +1110,6 @@ const Calculator: FC = () => {
     { id: "borrowing-power", label: "Borrowing Power Calculator" },
     { id: "repayment-time", label: "How Long to Repay Calculator" },
   ];
-
-  // Loan comparison state
-  const [loan1, setLoan1] = useState({
-    amount: 250000,
-    term: 30,
-    introRate: 4.5,
-    introPeriod: 24,
-    ongoingRate: 5.5,
-    upfrontFee: 500,
-    monthlyFee: 10,
-  });
-  
-  const [loan2, setLoan2] = useState({
-    amount: 250000,
-    term: 30,
-    introRate: 4.5,
-    introPeriod: 24,
-    ongoingRate: 5.5,
-    upfrontFee: 500,
-    monthlyFee: 10,
-  });
-
-  // Extra repayment state
-  const [extraRepayment, setExtraRepayment] = useState({
-    loanAmount: 300000,
-    interestRate: 5.5,
-    loanTerm: 30,
-    paymentFrequency: "monthly",
-    startAfter: 0,
-    extraMonthlyPayment: 200,
-  });
-
-  // Mortgage switching state
-  const [currentLoan, setCurrentLoan] = useState({
-    amount: 0,
-    currentRate: 0,
-    term: 0,
-    regularFee: 0,
-    finalPayoutFee: 0,
-  });
-
-  const [newLoan, setNewLoan] = useState({
-    introTerm: 0,
-    introRate: 0,
-    revertRate: 0,
-    regularFee: 0,
-    upfrontFees: 0,
-  });
-
-  // Interest only state
-  const [interestOnly, setInterestOnly] = useState({
-    loanAmount: 400000,
-    interestRate: 5.5,
-    paymentFrequency: "monthly",
-    interestOnlyPeriod: 5,
-    totalLoanTerm: 30,
-  });
-
-  // Calculation functions
-  const calculateLoanComparison = (loan) => {
-    const p = loan.amount;
-    const introMonthlyRate = loan.introRate / 100 / 12;
-    const ongoingMonthlyRate = loan.ongoingRate / 100 / 12;
-    const totalMonths = loan.term * 12;
-    const introMonths = loan.introPeriod;
-    
-    // Initial payment calculation
-    const initialPayment = p * (introMonthlyRate * Math.pow(1 + introMonthlyRate, totalMonths)) / 
-                          (Math.pow(1 + introMonthlyRate, totalMonths) - 1);
-    
-    // Ongoing payment calculation
-    const remainingBalance = p * Math.pow(1 + introMonthlyRate, introMonths) - 
-                           initialPayment * ((Math.pow(1 + introMonthlyRate, introMonths) - 1) / introMonthlyRate);
-    const remainingMonths = totalMonths - introMonths;
-    const ongoingPayment = remainingBalance * (ongoingMonthlyRate * Math.pow(1 + ongoingMonthlyRate, remainingMonths)) / 
-                          (Math.pow(1 + ongoingMonthlyRate, remainingMonths) - 1);
-    
-    const totalCost = (initialPayment * introMonths) + (ongoingPayment * remainingMonths) + 
-                     loan.upfrontFee + (loan.monthlyFee * totalMonths);
-    
-    return {
-      initialPayment: initialPayment || 0,
-      ongoingPayment: ongoingPayment || 0,
-      totalCost: totalCost || 0,
-    };
-  };
-
-  const calculateInterestOnly = () => {
-    const p = interestOnly.loanAmount;
-    const monthlyRate = interestOnly.interestRate / 100 / 12;
-    const interestOnlyMonths = interestOnly.interestOnlyPeriod * 12;
-    const totalMonths = interestOnly.totalLoanTerm * 12;
-    const principalMonths = totalMonths - interestOnlyMonths;
-    
-    // Interest only payment
-    const interestOnlyPayment = p * monthlyRate;
-    
-    // Principal & interest payment after interest-only period
-    const principalInterestPayment = p * (monthlyRate * Math.pow(1 + monthlyRate, principalMonths)) / 
-                                   (Math.pow(1 + monthlyRate, principalMonths) - 1);
-    
-    return {
-      interestOnlyPayment: interestOnlyPayment || 0,
-      principalInterestPayment: principalInterestPayment || 0,
-    };
-  };
-  const [contact, setContact] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    loanType: "Home Loan",
-    message: "",
-    verification: "",
-  });
-  const [error, setError] = useState<string | null>(null);
-
-  const handleContactChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    setContact({ ...contact, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setError(null);
-    if (parseInt(contact.verification) !== 10) {
-      setError("Verification answer is incorrect.");
-      return;
-    }
-    alert(`Message sent for ${contact.name}`);
-    setContact({
-      name: "",
-      email: "",
-      phone: "",
-      loanType: "Home Loan",
-      message: "",
-      verification: "",
-    });
-  };
 
   return (
     <div className="min-h-screen bg-[#E6F2FE]">

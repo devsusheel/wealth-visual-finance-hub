@@ -11,7 +11,7 @@ const Refinancing = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-green via-green-700 to-green-800 text-white py-20">
+      <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <RefreshCw className="h-16 w-16 text-brand-yellow mx-auto mb-6" />

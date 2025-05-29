@@ -14,8 +14,7 @@ const FAQ = () => {
   const faqCategories = [
     {
       icon: Home,
-      title: "Home Loans",
-      color: "from-blue-600 to-cyan-500",
+       color: "from-[#678E19] to-green-500",
       questions: [
         {
           question: "What deposit do I need to buy a home?",
@@ -38,7 +37,7 @@ const FAQ = () => {
     {
       icon: DollarSign,
       title: "Rates & Fees",
-      color: "from-green-600 to-emerald-500",
+      color: "from-[#EDA208] to-yellow-500",
       questions: [
         {
           question: "What fees should I expect when getting a home loan?",
@@ -61,7 +60,7 @@ const FAQ = () => {
     {
       icon: FileText,
       title: "Application Process",
-      color: "from-purple-600 to-indigo-500",
+      color: "from-green-600 to-[#678E19]",
       questions: [
         {
           question: "What documents do I need for a home loan application?",
@@ -84,7 +83,7 @@ const FAQ = () => {
     {
       icon: Clock,
       title: "Refinancing",
-      color: "from-orange-600 to-red-500",
+       color: "from-yellow-600 to-[#EDA208]",
       questions: [
         {
           question: "When should I consider refinancing?",
@@ -119,11 +118,11 @@ const FAQ = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white py-20">
+      <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">Frequently Asked Questions</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+           <p className="text-xl text-green-100 max-w-3xl mx-auto mb-8">
               Find answers to common questions about mortgages, home loans, and our services. 
               Can't find what you're looking for? Our experts are here to help.
             </p>
@@ -170,7 +169,7 @@ const FAQ = () => {
                       <Accordion type="single" collapsible className="w-full">
                         {category.questions.map((faq, index) => (
                           <AccordionItem key={index} value={`${categoryIndex}-${index}`} className="px-6">
-                            <AccordionTrigger className="text-left text-lg font-medium py-6 hover:text-blue-600">
+                            <AccordionTrigger className="text-left text-lg font-medium py-6 hover:text-[#678E19]">
                               {faq.question}
                             </AccordionTrigger>
                             <AccordionContent className="text-gray-600 pb-6">

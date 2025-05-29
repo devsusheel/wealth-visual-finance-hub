@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -34,25 +35,25 @@ const Contact = () => {
       icon: Phone,
       title: "Phone",
       details: ["+1 (555) 123-4567", "1800 FINANCE"],
-      color: "from-blue-600 to-cyan-500"
+    color: "from-[#678E19] to-green-500"
     },
     {
       icon: Mail,
       title: "Email",
       details: ["info@financehub.com", "support@financehub.com"],
-      color: "from-green-600 to-emerald-500"
+    color: "from-[#EDA208] to-yellow-500"
     },
     {
       icon: MapPin,
       title: "Office",
       details: ["123 Finance Street", "New York, NY 10001"],
-      color: "from-purple-600 to-indigo-500"
+    color: "from-green-600 to-[#678E19]"
     },
     {
       icon: Clock,
       title: "Hours",
       details: ["Mon-Fri: 8AM-6PM", "Sat: 9AM-3PM"],
-      color: "from-orange-600 to-red-500"
+    color: "from-yellow-600 to-[#EDA208]"
     }
   ];
 
@@ -102,11 +103,11 @@ const Contact = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-700 text-white py-20">
+     <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">Get In Touch</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               Ready to take the next step? Our mortgage experts are here to help you 
               achieve your property goals with personalized advice and competitive rates.
             </p>
@@ -217,7 +218,7 @@ const Contact = () => {
                       <p>By submitting this form, you agree to our privacy policy and terms of service.</p>
                     </div>
 
-                    <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 py-3">
+                     <Button type="submit" className="w-full bg-gradient-to-r from-[#678E19] to-green-600 hover:from-green-700 hover:to-green-700 py-3">
                       Send Message
                     </Button>
                   </form>
@@ -234,7 +235,7 @@ const Contact = () => {
                     <Card key={index} className="hover:shadow-md transition-shadow">
                       <CardContent className="p-6">
                         <div className="flex items-start space-x-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                         <div className="w-12 h-12 bg-gradient-to-r from-[#678E19] to-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
                             <service.icon className="h-6 w-6 text-white" />
                           </div>
                           <div>
@@ -249,18 +250,18 @@ const Contact = () => {
               </div>
 
               {/* Quick Contact CTA */}
-              <Card className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white">
+             <Card className="bg-gradient-to-r from-[#EDA208] to-yellow-500 text-black">
                 <CardContent className="p-8 text-center">
                   <h3 className="text-2xl font-bold mb-4">Need Immediate Help?</h3>
-                  <p className="text-cyan-100 mb-6">
+                 <p className="text-black/80 mb-6">
                     Speak with one of our mortgage experts right now. 
                     We're here to answer your questions and get you started.
                   </p>
                   <div className="space-y-3">
-                    <Button className="w-full bg-white text-blue-600 hover:bg-gray-100">
+                    <Button className="w-full bg-[#678E19] text-white hover:bg-green-700">
                       Call Now: 1800 FINANCE
                     </Button>
-                    <Button variant="outline" className="w-full border-white text-white hover:bg-white hover:text-blue-600">
+                  <Button variant="outline" className="w-full border-[#678E19] text-[#678E19] hover:bg-[#678E19] hover:text-white">
                       Book Online Consultation
                     </Button>
                   </div>
@@ -283,8 +284,8 @@ const Contact = () => {
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                    <span className="text-sm text-green-600 font-medium">Verified Customer</span>
+                    <CheckCircle className="h-5 w-5 text-[#678E19] mr-2" />
+                    <span className="text-sm text-[#678E19] font-medium">Verified Customer</span>
                   </div>
                   <p className="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
                   <div>
@@ -306,9 +307,9 @@ const Contact = () => {
             <p className="text-lg text-gray-600">We'd love to meet you in person</p>
           </div>
           <Card className="overflow-hidden">
-            <div className="h-96 bg-gradient-to-r from-blue-100 to-cyan-100 flex items-center justify-center">
+            <div className="h-96 bg-gradient-to-r from-green-100 to-yellow-100 flex items-center justify-center">
               <div className="text-center">
-                <MapPin className="h-16 w-16 text-blue-600 mx-auto mb-4" />
+                <MapPin className="h-16 w-16 text-[#678E19] mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">FinanceHub Office</h3>
                 <p className="text-gray-600">123 Finance Street, New York, NY 10001</p>
                 <p className="text-sm text-gray-500 mt-2">Free parking available</p>

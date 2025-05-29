@@ -76,7 +76,7 @@ const About = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[var(--brand-green)] via-[var(--brand-green)] to-[var(--brand-yellow)] text-white py-20">
+      <section className="bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">About FinanceHub</h1>
@@ -257,10 +257,11 @@ const About = () => {
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-black mb-4">Ready to Work With Us?</h2>
           <p className="text-xl text-black mb-8">Join thousands of satisfied customers who have trusted FinanceHub with their home financing needs.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="btn-brand-green px-8 py-3">Get Started Today</Button>
-            <Button size="lg" variant="outline" className="border-[var(--brand-green)] text-[var(--brand-green)] hover:bg-[var(--brand-green)]/10 px-8 py-3">Contact Our Team</Button>
-          </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+  <Button size="lg" className="!bg-orange-500 hover:!bg-orange-600 !text-black hover:!text-black !font-medium px-8 py-3 rounded-md transition-colors duration-200">
+  Get Started Today <span className="ml-2">→</span></Button>
+  <Button size="lg" className="!bg-white hover:!bg-gray-50 !text-green-600 hover:!text-green-600 !font-medium px-8 py-3 rounded-md !border-2 !border-green-600 hover:!border-green-600 transition-colors duration-200">Contact Our Team </Button>
+</div>
         </div>
       </section>
 
