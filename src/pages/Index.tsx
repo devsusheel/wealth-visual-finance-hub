@@ -113,7 +113,7 @@ const Index = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Link to="/services">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#678E19]">
+                  <Button size="lg" variant="outline-white">
                     Explore Our Services
                   </Button>
                 </Link>
@@ -164,54 +164,54 @@ const Index = () => {
 
       {/* Enhanced Services Section */}
       <section className="py-20 bg-gradient-to-br from-green-50 to-gray-50">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold mb-4 text-[#678E19]">Our Services</h2>
-      <p className="text-xl text-gray-600">Comprehensive financial solutions for every need</p>
-    </div>
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {services.map((service, index) => (
-        <Card key={index} className="bg-white border-2 border-gray-100 hover:border-[#678E19] hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
-          <CardHeader className="flex-shrink-0">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#678E19] to-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                <service.icon className="h-8 w-8 text-white" />
-              </div>
-              <div>
-                <CardTitle className="text-[#678E19] text-2xl group-hover:text-green-700 transition-colors">{service.title}</CardTitle>
-                <p className="text-gray-600 mt-2">{service.description}</p>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent className="flex-grow flex flex-col">
-            <ul className="space-y-3 mb-6 flex-grow">
-              {service.features.map((feature, featureIndex) => (
-                <li key={featureIndex} className="flex items-center space-x-3 text-gray-700">
-                  <CheckCircle className="h-5 w-5 text-[#EDA208] flex-shrink-0" />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-            <Link to={service.link} className="mt-auto">
-              <Button className="w-full font-semibold group-hover:shadow-lg transition-all py-3">
-                Learn More
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-[#678E19]">Our Services</h2>
+            <p className="text-xl text-gray-600">Comprehensive financial solutions for every need</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className="bg-white border-2 border-gray-100 hover:border-[#678E19] hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
+                <CardHeader className="flex-shrink-0">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-r from-[#678E19] to-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <service.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-[#678E19] text-2xl group-hover:text-green-700 transition-colors">{service.title}</CardTitle>
+                      <p className="text-gray-600 mt-2">{service.description}</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col">
+                  <ul className="space-y-3 mb-6 flex-grow">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-3 text-gray-700">
+                        <CheckCircle className="h-5 w-5 text-[#EDA208] flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to={service.link} className="mt-auto">
+                    <Button className="w-full font-semibold group-hover:shadow-lg transition-all py-3">
+                      Learn More
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link to="/services">
+              <Button size="lg" variant="default" className="font-semibold px-8 py-4">
+                View All Services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-       <div className="text-center mt-12">
-      <Link to="/services">
-        <Button size="lg" variant="secondary" className="font-semibold px-8 py-4">
-          View All Services
-          <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
-      </Link>
-    </div>
-  </div>
-</section>
+          </div>
+        </div>
+      </section>
 
       {/* Testimonials */}
       <section className="py-20 bg-gray-50">
@@ -247,11 +247,11 @@ const Index = () => {
           <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8">Join thousands of satisfied customers who chose FinanceHub for their home loans</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="font-semibold">
+            <Button size="lg" variant="default" className="font-semibold">
               Apply Now
             </Button>
             <Link to="/contact">
-              <Button size="lg" variant="outline" className="font-semibold border-2 border-black text-black hover:bg-black hover:text-white">
+              <Button size="lg" variant="outline-dark" className="font-semibold">
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

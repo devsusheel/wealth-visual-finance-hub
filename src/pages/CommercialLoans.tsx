@@ -68,7 +68,7 @@ const CommercialLoans = () => {
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
          <h2 className="text-4xl font-bold mb-4 text-gray-900">Grow Your Business</h2>
           <p className="text-xl mb-8 text-gray-800">Get the funding you need to take your business to the next level</p>
-          <Button size="lg" variant="secondary" className="px-8 py-3 font-semibold">
+          <Button size="lg" variant="default" className="px-8 py-3 font-semibold">
             Apply for Commercial Finance
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
