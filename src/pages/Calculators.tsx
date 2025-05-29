@@ -26,6 +26,7 @@ const Calculator: FC = () => {
     weeklyPayment: 0,
   });
 
+  
   // Loan comparison state
   const [loan1, setLoan1] = useState({
     amount: 250000,
