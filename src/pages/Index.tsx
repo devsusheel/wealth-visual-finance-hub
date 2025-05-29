@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -85,8 +86,24 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <Navbar />
       
-      {/* Hero Section with House Background */}
-      <section className="relative bg-gradient-to-br from-[#678E19] via-green-700 to-green-800 text-white">
+      {/* Hero Section with Animations */}
+      <section className="relative bg-gradient-to-br from-[#678E19] via-green-700 to-green-800 text-white overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          {/* Animated gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-blue-800/20 animate-pulse"></div>
+          
+          {/* Floating circles */}
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white/5 rounded-full animate-bounce" style={{animationDelay: '0s', animationDuration: '3s'}}></div>
+          <div className="absolute top-32 right-20 w-16 h-16 bg-[#EDA208]/20 rounded-full animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}></div>
+          <div className="absolute bottom-20 left-32 w-12 h-12 bg-white/10 rounded-full animate-bounce" style={{animationDelay: '2s', animationDuration: '5s'}}></div>
+          <div className="absolute bottom-40 right-40 w-8 h-8 bg-[#EDA208]/30 rounded-full animate-bounce" style={{animationDelay: '0.5s', animationDuration: '3.5s'}}></div>
+          
+          {/* Moving shapes */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full animate-spin" style={{animationDuration: '20s'}}></div>
+          <div className="absolute bottom-1/4 right-1/4 w-24 h-24 border border-[#EDA208]/20 rounded-full animate-spin" style={{animationDuration: '15s', animationDirection: 'reverse'}}></div>
+        </div>
+
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -96,39 +113,40 @@ const Index = () => {
         ></div>
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black opacity-60"></div>
+        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-white">
+            <div className="space-y-8 animate-fade-in">
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-white transform transition-all duration-700 hover:scale-105">
                 Your Dream Home
-                <span className="block text-[#EDA208]">Starts Here</span>
+                <span className="block text-[#EDA208] animate-pulse">Starts Here</span>
               </h1>
-              <p className="text-xl text-green-100">
+              <p className="text-xl text-green-100 transform transition-all duration-500" style={{animationDelay: '0.2s'}}>
                 Get the best mortgage rates and expert financial advice. 
                 Professional guidance to secure your perfect home loan.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" variant="secondary">
+              <div className="flex flex-col sm:flex-row gap-4 transform transition-all duration-500" style={{animationDelay: '0.4s'}}>
+                <Button size="lg" variant="secondary" className="hover:scale-105 transition-transform duration-200">
                   Free Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Link to="/services">
-                  <Button size="lg" variant="outline-white">
+                  <Button size="lg" variant="outline-white" className="hover:scale-105 transition-transform duration-200">
                     Explore Our Services
                   </Button>
                 </Link>
               </div>
               <div className="grid grid-cols-3 gap-8 pt-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#EDA208]">$2B+</div>
+                <div className="text-center transform hover:scale-110 transition-transform duration-300">
+                  <div className="text-3xl font-bold text-[#EDA208] animate-pulse">$2B+</div>
                   <div className="text-green-200">Loans Processed</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#EDA208]">10K+</div>
+                <div className="text-center transform hover:scale-110 transition-transform duration-300" style={{animationDelay: '0.1s'}}>
+                  <div className="text-3xl font-bold text-[#EDA208] animate-pulse">10K+</div>
                   <div className="text-green-200">Happy Customers</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-[#EDA208]">4.9★</div>
+                <div className="text-center transform hover:scale-110 transition-transform duration-300" style={{animationDelay: '0.2s'}}>
+                  <div className="text-3xl font-bold text-[#EDA208] animate-pulse">4.9★</div>
                   <div className="text-green-200">Customer Rating</div>
                 </div>
               </div>
@@ -146,9 +164,9 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow">
+              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:scale-105">
                 <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-to-r from-[#678E19] to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-[#678E19] to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 hover:rotate-12 transition-transform duration-300">
                     <feature.icon className="h-8 w-8 text-white" />
                   </div>
                   <CardTitle className="text-xl text-[#678E19]">{feature.title}</CardTitle>
@@ -222,11 +240,11 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:scale-105">
                 <CardContent className="pt-6">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-[#EDA208] fill-current" />
+                      <Star key={i} className="h-5 w-5 text-[#EDA208] fill-current hover:scale-110 transition-transform" />
                     ))}
                   </div>
                   <p className="text-gray-600 mb-4">"{testimonial.content}"</p>
