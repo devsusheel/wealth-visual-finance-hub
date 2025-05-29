@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -242,17 +241,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - Fixed button styling */}
       <section className="py-20 bg-gradient-to-r from-[#EDA208] to-yellow-600 text-black">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8">Join thousands of satisfied customers who chose FinanceHub for their home loans</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="font-semibold">
+            <Button size="lg" variant="secondary" className="font-semibold">
               Apply Now
             </Button>
             <Link to="/contact">
-              <Button size="lg" variant="outline" className="font-semibold border-2 border-[#678E19] text-[#678E19] hover:bg-[#678E19] hover:text-white">
+              <Button size="lg" variant="outline" className="font-semibold border-2 border-black text-black hover:bg-black hover:text-white">
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
