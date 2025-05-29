@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -128,7 +127,7 @@ const HomeLoanCalculator = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-[#678E19] hover:bg-[#678E19]/90 text-white py-3">
+                <Button className="w-full py-3">
                   Explore More Financial Calculators
                 </Button>
               </CardContent>
@@ -158,7 +157,7 @@ const HomeLoanCalculator = () => {
                   </div>
                 </div>
 
-                <Button className="w-full bg-[#EDA208] hover:bg-[#EDA208]/90 text-black font-semibold py-3">
+                <Button variant="secondary" className="w-full font-semibold py-3">
                   Contact Us Now
                 </Button>
               </CardContent>

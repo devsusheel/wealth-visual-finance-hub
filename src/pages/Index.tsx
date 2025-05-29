@@ -109,12 +109,12 @@ const Index = () => {
                 Professional guidance to secure your perfect home loan.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-[#EDA208] hover:bg-[#EDA208]/90 text-black px-8 py-3 font-semibold">
+                <Button size="lg" variant="secondary">
                   Free Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
                 <Link to="/services">
-                  <Button size="lg" className="bg-white text-[#678E19] hover:bg-gray-100 px-8 py-3 font-semibold">
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#678E19]">
                     Explore Our Services
                   </Button>
                 </Link>
@@ -194,7 +194,7 @@ const Index = () => {
               ))}
             </ul>
             <Link to={service.link} className="mt-auto">
-              <Button className="w-full bg-[#678E19] hover:bg-green-700 text-white font-semibold group-hover:shadow-lg transition-all py-3">
+              <Button className="w-full font-semibold group-hover:shadow-lg transition-all py-3">
                 Learn More
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -205,7 +205,7 @@ const Index = () => {
     </div>
        <div className="text-center mt-12">
       <Link to="/services">
-        <Button size="lg" className="bg-[#EDA208] hover:bg-[#EDA208]/90 text-black font-semibold px-8 py-4">
+        <Button size="lg" variant="secondary" className="font-semibold px-8 py-4">
           View All Services
           <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
@@ -248,11 +248,11 @@ const Index = () => {
           <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8">Join thousands of satisfied customers who chose FinanceHub for their home loans</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-[#678E19] hover:bg-[#678E19]/90 text-white px-8 py-3 font-semibold">
+            <Button size="lg" className="font-semibold">
               Apply Now
             </Button>
             <Link to="/contact">
-              <Button size="lg" className="bg-white text-[#678E19] hover:bg-gray-100 px-8 py-3 font-semibold border-2 border-[#678E19]">
+              <Button size="lg" variant="outline" className="font-semibold border-2 border-[#678E19] text-[#678E19] hover:bg-[#678E19] hover:text-white">
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

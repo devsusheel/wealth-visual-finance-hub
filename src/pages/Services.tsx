@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -123,7 +122,7 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full bg-gradient-to-r from-[#678E19] to-green-500 hover:from-green-700 hover:to-green-600 text-white">
+                  <Button className="w-full">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -195,10 +194,10 @@ const Services = () => {
             Get in touch with our experts today and discover how we can help you achieve your financial goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-[#678E19] hover:bg-green-700 text-white px-8 py-3">
+            <Button size="lg">
               Get Pre-Approved
             </Button>
-            <Button size="lg" variant="outline" className="border-[#678E19] text-[#678E19] hover:bg-[#678E19] hover:text-white px-8 py-3">
+            <Button size="lg" variant="outline" className="border-[#678E19] text-[#678E19] hover:bg-[#678E19] hover:text-white">
               Calculate Payments
             </Button>
           </div>

@@ -186,7 +186,7 @@ const RepaymentCalculator = () => {
               </div>
             </div>
 
-            <Button className="w-full bg-[#EDA208] hover:bg-[#EDA208]/90 text-black font-semibold py-3">
+            <Button variant="secondary" className="w-full font-semibold py-3">
               Get Professional Advice
             </Button>
           </CardContent>

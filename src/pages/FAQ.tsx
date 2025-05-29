@@ -198,7 +198,7 @@ const FAQ = () => {
                   </div>
                 </div>
               </div>
-              <Button size="lg" className="bg-brand-yellow hover:bg-yellow-600 text-black px-8 py-3 font-semibold">
+              <Button size="lg" variant="secondary" className="font-semibold">
                 Book a Free Consultation
               </Button>
             </CardContent>
