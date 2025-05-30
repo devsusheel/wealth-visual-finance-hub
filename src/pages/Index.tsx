@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -87,7 +86,7 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section with Animations */}
-      <section className="relative bg-gradient-to-br from-[#678E19] via-green-700 to-green-800 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0">
           {/* Animated gradient overlay */}
@@ -262,19 +261,19 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section - Fixed button styling */}
-      <section className="py-20 bg-gradient-to-r from-[#EDA208] to-yellow-600 text-black">
+      {/* CTA Section - Updated with green background */}
+      <section className="py-20 bg-gradient-to-br from-[#678E19] via-green-700 to-green-600 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8">Join thousands of satisfied customers who chose FinanceHub for their home loans</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
            <Link to="/contact">
-            <Button size="lg" variant="default" className="font-semibold">
+            <Button size="lg" variant="secondary" className="font-semibold">
               Apply Now
             </Button>
             </Link> 
             <Link to="/contact">
-              <Button size="lg" variant="outline-dark" className="font-semibold">
+              <Button size="lg" variant="outline-white" className="font-semibold">
                 Contact Us
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
