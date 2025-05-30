@@ -43,7 +43,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/f574e7ef-1fd3-47d3-b5eb-6b5e82c3e9a5.png" 
                 alt="OzPro Finance Logo" 
-                className="h-12 w-auto"
+                className="h-16 w-auto"
               />
             </Link>
           </div>
