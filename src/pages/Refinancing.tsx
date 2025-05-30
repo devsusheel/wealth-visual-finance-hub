@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { RefreshCw, TrendingDown, PiggyBank, Home, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Refinancing = () => {
   return (
@@ -68,10 +69,12 @@ const Refinancing = () => {
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">Start Saving Today</h2>
           <p className="text-xl mb-8">Find out how much you could save by refinancing your home loan</p>
+           <Link to="/contact">
           <Button size="lg" variant="default" className="font-semibold">
             Get Refinancing Quote
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
+          </Link>
         </div>
       </section>
 

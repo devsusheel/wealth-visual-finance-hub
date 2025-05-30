@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Users, Award, Shield, Heart, Target, Eye, CheckCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const values = [
@@ -258,14 +259,15 @@ const About = () => {
           <h2 className="text-4xl font-bold text-black mb-4">Ready to Work With Us?</h2>
           <p className="text-xl text-black mb-8">Join thousands of satisfied customers who have trusted FinanceHub with their home financing needs.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/contact">
   <Button size="lg" className="!bg-orange-500 hover:!bg-orange-600 !text-black hover:!text-black !font-medium px-8 py-3 rounded-md transition-colors duration-200">
-  Get Started Today <span className="ml-2">→</span></Button>
-  <Button size="lg" className="!bg-white hover:!bg-gray-50 !text-green-600 hover:!text-green-600 !font-medium px-8 py-3 rounded-md !border-2 !border-green-600 hover:!border-green-600 transition-colors duration-200">Contact Our Team </Button>
+  Get Started Today <span className="ml-2">→</span></Button></Link>
+   <Link to="/contact">
+  <Button size="lg" className="!bg-white hover:!bg-gray-50 !text-green-600 hover:!text-green-600 !font-medium px-8 py-3 rounded-md !border-2 !border-green-600 hover:!border-green-600 transition-colors duration-200">Contact Our Team </Button></Link>
 </div>
         </div>
       </section>
-
-      <Footer />
+ <Footer />
     </div>
   );
 };

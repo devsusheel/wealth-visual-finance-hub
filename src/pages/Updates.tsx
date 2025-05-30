@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, TrendingUp, DollarSign, Home, Building2, ArrowRight, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Updates = () => {
   const latestNews = [
@@ -274,9 +275,11 @@ const Updates = () => {
                 <p className="text-green-700 mb-4">
                     Speak with our mortgage experts for personalized guidance.
                   </p>
+                  <Link to="/contact">
                   <Button className="w-full bg-[#678E19] hover:bg-green-700 text-white">
                     Book a Consultation
                   </Button>
+                  </Link>
                 </CardContent>
               </Card>
             </div>

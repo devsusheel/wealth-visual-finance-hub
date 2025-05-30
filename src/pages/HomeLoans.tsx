@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Home, CheckCircle, TrendingDown, Shield, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HomeLoans = () => {
   return (
@@ -68,10 +69,12 @@ const HomeLoans = () => {
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">Ready to Buy Your Dream Home?</h2>
           <p className="text-xl mb-8 text-gray-800">Get pre-approved and start your home buying journey today</p>
+          <Link to="/contact">
           <Button size="lg" variant="default" className="px-8 py-3 font-semibold">
             Apply for Home Loan
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
+          </Link>
         </div>
       </section>
 

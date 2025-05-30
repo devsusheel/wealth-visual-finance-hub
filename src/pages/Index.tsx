@@ -126,15 +126,18 @@ const Index = () => {
                 Professional guidance to secure your perfect home loan.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 transform transition-all duration-500" style={{animationDelay: '0.4s'}}>
+                <Link to="/contact">
                 <Button size="lg" variant="secondary" className="hover:scale-105 transition-transform duration-200">
                   Free Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
+               </Link>
                 <Link to="/services">
                   <Button size="lg" variant="outline-white" className="hover:scale-105 transition-transform duration-200">
                     Explore Our Services
                   </Button>
                 </Link>
+             
               </div>
               <div className="grid grid-cols-3 gap-8 pt-8">
                 <div className="text-center transform hover:scale-110 transition-transform duration-300">
@@ -265,9 +268,11 @@ const Index = () => {
           <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8">Join thousands of satisfied customers who chose FinanceHub for their home loans</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+           <Link to="/contact">
             <Button size="lg" variant="default" className="font-semibold">
               Apply Now
             </Button>
+            </Link> 
             <Link to="/contact">
               <Button size="lg" variant="outline-dark" className="font-semibold">
                 Contact Us

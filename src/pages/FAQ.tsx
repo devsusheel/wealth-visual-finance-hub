@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, HelpCircle, Home, DollarSign, FileText, Clock, Phone, Mail } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const FAQ = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -198,9 +199,11 @@ const FAQ = () => {
                   </div>
                 </div>
               </div>
+              <Link to="/contact">
               <Button size="lg" variant="secondary" className="font-semibold">
                 Book a Free Consultation
               </Button>
+              </Link>
             </CardContent>
           </Card>
         </div>
