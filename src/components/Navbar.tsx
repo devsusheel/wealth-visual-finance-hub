@@ -37,13 +37,13 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
+        <div className="flex justify-between h-28">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <img 
                 src="/lovable-uploads/f574e7ef-1fd3-47d3-b5eb-6b5e82c3e9a5.png" 
                 alt="OzPro Finance Logo" 
-                className="h-18 w-auto object-contain"
+                className="h-24 w-auto object-contain"
               />
             </Link>
           </div>
